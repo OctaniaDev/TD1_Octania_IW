@@ -7,7 +7,7 @@ the temperature of the city, the variable can be:
 
 ### __For HTML__
 - Always in lowercase
-- Words are separeted by '_'
+- Words are separeted by '_' 
 example: ``my_variable``  
 
 ### __For POO (or prototypes)__
