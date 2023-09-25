@@ -61,7 +61,7 @@ Both functions do the same thing. The first is easier to write.
 - If there is only one parameter, no need to type parentheses
 - If the function only returns a value, no need for the word 'return'  
 
-## some Tips__
+## __Some Tips__
 
 - Try as much as possible to have readable and clean code
 - Do not hesitate to make newlines and leave blank lines in your functions
