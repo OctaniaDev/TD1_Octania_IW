@@ -18,6 +18,7 @@ zipCode.addEventListener('keypress', function (e) {
  */
 function zipCodeHttpRequest(){
     let url = 'https://geo.api.gouv.fr/communes?codePostal=' + zipCode.value;
+    cityName.innerHTML = '<option value="">Choose your city...</option>';
     fetch(url)
     .then(reponse => {
         if(!reponse.ok){
@@ -27,6 +28,10 @@ function zipCodeHttpRequest(){
     .then(data => {
         for(let i = 0; i <= data.length-1; i++){
             console.log(data[i].nom + " - " + data[i].code)
+            let option = document.createElement('option');
+            option.value = data[i].nom;
+            option.textContent = data[i].nom;
+            cityName.appendChild(option);
         }
     })
     .catch(error =>{
