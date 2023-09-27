@@ -1,24 +1,19 @@
-export function getHttpRequest(zipCodeDisplay, cityListDisplay){
+export function getHttpRequest(zipCodeDisplay){
     let url = 'https://geo.api.gouv.fr/communes?codePostal=' + zipCodeDisplay.value;
-    fetch(url)
+    return fetch(url)
     .then(reponse => {
-        if(!reponse.ok){
+        if(!reponse.ok)
             throw new Error('Error something went wrong');
-        } return reponse.json();
+        return reponse.json();
     })
-    .then(data => {
-        createList(data, cityListDisplay)
-    })
-    .catch(error =>{
-        console.error('Error : ', error);
-    });
 }
 
-function createList(data, cityListDisplay) {
+export function createList(data, list) {
+    list.innerHTML ='<option value="default">Choose your city...</option>'
     for(let i = 0; i <= data.length-1; i++){
         let option = document.createElement('option');
         option.value = data[i].code;
         option.textContent = data[i].nom;
-        cityListDisplay.appendChild(option);
+        list.appendChild(option);
     }
 }
