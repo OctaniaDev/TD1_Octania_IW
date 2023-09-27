@@ -5,9 +5,8 @@ let zipCodeDisplay = document.getElementById('zipCodeInput');
 let cityListDisplay = document.getElementById('cityNameSelect');
 
 zipCodeDisplay.addEventListener('keypress', e => {
-    if (e.key === 'Enter') {
-        let request = zipCode.getHttpRequest(zipCodeDisplay, cityListDisplay)
-    }
+    if (e.key === 'Enter')
+        createList()
 })
 
 cityListDisplay.addEventListener('change', () => {
@@ -18,6 +17,17 @@ cityListDisplay.addEventListener('change', () => {
         setWeatherInformations(request)
     }
 })
+
+function createList() {
+    let request = zipCode.getHttpRequest(zipCodeDisplay)
+    request
+    .then(data => {
+        zipCode.createList(data, cityListDisplay)
+    })
+    .catch(error =>{
+        console.error('Error : ', error);
+    });
+}
 
 async function setWeatherInformations(request) {
     if(!('content' in document.createElement('template'))) return
