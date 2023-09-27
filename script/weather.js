@@ -1,10 +1,9 @@
-const url = "https://api.meteo-concept.com/api/"
-const token = "ab15e7c6132d97683df2c3839c2a64c7c19b1e6b23a38847069a8e30925ae072"
+import config from './config.json' assert{type : 'json'}
 
 export class WeatherAPI {
     constructor(codeInsee) {
-        this.url = url
-        this.token = token
+        this.url = config.url
+        this.token = config.token
         this.codeInsee = codeInsee
     }
 
