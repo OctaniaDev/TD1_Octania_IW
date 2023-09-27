@@ -1,4 +1,4 @@
-const config = require('./configWeather.json')
+const config = require('./config.json')
 
 
 class WeatherAPI {
@@ -25,7 +25,3 @@ class WeatherAPI {
         })
     }
 }
-
-
-
-
