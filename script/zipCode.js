@@ -1,7 +1,6 @@
-let cityNameDisplay = document.getElementById('cityNameSelect');
-
-export function getHttpRequest(zipCodeDisplay){
+export function getHttpRequest(zipCodeDisplay, cityListDisplay){
     let url = 'https://geo.api.gouv.fr/communes?codePostal=' + zipCodeDisplay.value;
+    console.log(url)
     fetch(url)
     .then(reponse => {
         if(!reponse.ok){
@@ -9,19 +8,18 @@ export function getHttpRequest(zipCodeDisplay){
         } return reponse.json();
     })
     .then(data => {
-        displayList(data)
+        createList(data, cityListDisplay)
     })
     .catch(error =>{
         console.error('Error : ', error);
     });
 }
 
-function displayList(data) {
-    cityNameDisplay.innerHTML = '<option value="">Choose your city...</option>';
+function createList(data, cityListDisplay) {
     for(let i = 0; i <= data.length-1; i++){
         let option = document.createElement('option');
-        option.value = data[i].nom;
+        option.value = data[i].code;
         option.textContent = data[i].nom;
-        cityNameDisplay.appendChild(option);
+        cityListDisplay.appendChild(option);
     }
 }

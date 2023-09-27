@@ -1,9 +1,10 @@
-const config = require('./config.json')
+const url = "https://api.meteo-concept.com/api/"
+const token = "ab15e7c6132d97683df2c3839c2a64c7c19b1e6b23a38847069a8e30925ae072"
 
-class WeatherAPI {
+export class WeatherAPI {
     constructor(codeInsee) {
-        this.url = config.url
-        this.token = config.token
+        this.url = url
+        this.token = token
         this.codeInsee = codeInsee
     }
 
@@ -12,7 +13,7 @@ class WeatherAPI {
     }
     
     getRequeteResult() {
-        return fetch(api.getHttpRequest())
+        return fetch(this.getHttpRequest())
         .then(response => {
             if(!response.ok || this.codeInsee == '' || this.codeInsee == null) {
                 throw new Error('http response error')
@@ -20,7 +21,7 @@ class WeatherAPI {
             return response.json()
         })
         .then(data => {
-            return data.forecast
+            console.table(data)
         })
     }
 }
