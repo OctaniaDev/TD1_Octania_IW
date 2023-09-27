@@ -1,6 +1,5 @@
 const config = require('./config.json')
 
-
 class WeatherAPI {
     constructor(codeInsee) {
         this.url = config.url
