@@ -1,6 +1,5 @@
 export function getHttpRequest(zipCodeDisplay, cityListDisplay){
     let url = 'https://geo.api.gouv.fr/communes?codePostal=' + zipCodeDisplay.value;
-    console.log(url)
     fetch(url)
     .then(reponse => {
         if(!reponse.ok){
