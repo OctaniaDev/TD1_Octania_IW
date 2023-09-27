@@ -9,7 +9,7 @@ export class WeatherAPI {
     }
 
     getHttpRequest() {
-        return this.url + 'forecast/daily?insee=' + this.codeInsee + '&token=' + this.token
+        return this.url + 'forecast/daily/0?insee=' + this.codeInsee + '&token=' + this.token
     }
     
     getRequeteResult() {
@@ -19,9 +19,6 @@ export class WeatherAPI {
                 throw new Error('http response error')
             }
             return response.json()
-        })
-        .then(data => {
-            console.table(data)
         })
     }
 }
