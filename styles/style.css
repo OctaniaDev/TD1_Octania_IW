@@ -1,4 +1,104 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: 'Poppins';
+}
+
+
+/* ===== HEADER ===== */
+.header-general {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.h1-title {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+
+.hero-title-part1 {
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-title-part2 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+/* ===== INPUT ===== */
+
+.user-choose-general {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+input::placeholder {
+    color: white;
+}
+
+
+.input-general {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    
+}
+
+#zipCodeInput {
+    background-color: #353535;
+    border-radius: 10px;
+    padding: 4px 10px;
+    color: white;
+}
+
+
+/* ===== SELECT ===== */
+
+.select-general {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+#cityNameSelect {
+    background-color: #353535;
+    padding: 4px 10px;
+    color: white;
+}
+
+
+/* ===== TEMPLATE ===== */
+
+#weatherContainer {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#weatherList {
+    list-style: none;
+    text-transform: capitalize;
+}
+
+/* ===== FOOTER ==== */
+
+.footer-general {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
