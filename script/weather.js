@@ -42,3 +42,13 @@ export async function setWeatherInformations(request){
     })
     .catch(err => {console.error('Error : ', err)})
 }
+
+export class WeatherCard{
+    constructor(tmin, tmax, probarain, sun_hours) {
+        this.temperatureMin = tmin;
+        this.temperatureMax = tmax;
+        this.probabilityRain = probarain;
+        this.sunHours = sun_hours;
+        this.options = [4];
+    }
+}
