@@ -6,29 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instant Weather</title>
     <link rel="stylesheet" href="../styles/style.css">
-</head>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap" rel="stylesheet" </head>
 
 <body>
-    <header>
-        <h1>Instant Weather</h1>
+    <header class="header-general">
+        <h1 class="h1-title">Instant Weather</h1>
+        <span class="hero-title-part1">Find everything relating</span>
+        <span class="hero-title-part2">to your weather</span>
     </header>
 
-    <h2>Find everything relating to your weather</h2>
-    <input id="zipCodeInput" type="number" placeholder="Enter your zipcode...">
-    <select name="" multiple="false" id="cityNameSelect">
-        <option value="default">Choose your city...</option>
-    </select>
+    <div class="user-choose-general">
+        <div class="input-general">
+            <input id="zipCodeInput" type="number" placeholder="Enter your zipcode...">
+        </div>
+
+
+        <div class="select-general">
+            <select name="" multiple="false" id="cityNameSelect">
+                <option value="default">Choose your city...</option>
+            </select>
+        </div>
+    </div>
+
 
     <template id="weatherTemplate">
         <div id="weatherContainer">
             <ul id="weatherList">
-                <li><p></p></li>
-                <li><p></p></li>
-                <li><p></p></li>
-                <li><p></p></li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
             </ul>
         </div>
     </template>
+
+
+    <footer class="footer-general">
+        <p>OCTANIA &copy; | bclr | FI$$ | Tagada</p>
+    </footer>
+
+
+    <!-- SCRIPT JS-->
     <script type="module" src="../script/main.js"></script>
 </body>
 
