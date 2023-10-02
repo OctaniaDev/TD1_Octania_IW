@@ -19,6 +19,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap" rel="stylesheet" </head>
 
 <body>
+
+    <div class="loader-container">
+        <div class="loader">
+            <i class="fas fa-cloud fa-bounce"></i>
+        </div>
+    </div>
+
+
     <header class="header-general">
         <h1 class="h1-title">Instant Weather</h1>
         <span class="hero-title-part1">Find everything relating</span>
@@ -75,7 +83,7 @@
             </div>
         </template>
 
-        <button id="open-modal-btn" class="modal-btn">
+        <button id="open-modal-btn" class="modal-btn hidden">
             <i class="fa-solid fa-gear fa-rotate-90 fa-sm"></i>
         </button>
 
@@ -113,7 +121,7 @@
 
     </main>
 
-    <footer class="footer-general">
+    <footer class="footer-general hidden">
         <p>OCTANIA &copy; | bclr | FI$$ | Tagada</p>
     </footer>
 
