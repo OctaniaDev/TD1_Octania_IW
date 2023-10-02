@@ -49,7 +49,7 @@ input::placeholder {
     cursor: pointer;
     display: flex;
     justify-content: center;
-    
+
 }
 
 #zip-code-input {
@@ -79,18 +79,81 @@ input::placeholder {
 
 /* ===== TEMPLATE ===== */
 
-#weather-container {
-    display: flex;
+
+
+
+/* ===== MODAL ==== */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
 }
 
-#weather-list, #option-list {
-    list-style: none;
-    text-transform: capitalize;
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 200px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
+
+.close-modal-btn {
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.modal-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.modal-btn i {
+    color: #333;
+    font-size: 24px;
+}
+
+.modal-btn:focus {
+    outline: none;
+}
+
+.modal-content {
+    display: flex;
+}
+
+#weather-options-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 10px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+label {
+    margin-right: 5px;
+}
+
+
+
+
+
 
 /* ===== FOOTER ==== */
 
