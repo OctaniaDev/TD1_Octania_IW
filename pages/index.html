@@ -10,6 +10,9 @@
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="../assets/favicon.png">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
     <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,43 +41,80 @@
         <template id="weather-template">
             <div id="weather-container">
                 <ul id="weather-list">
-                    <li><p></p></li>
-                    <li><p></p></li>
-                    <li><p></p></li>
-                    <li><p></p></li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
                 </ul>
 
                 <ul id="option-list">
-                    <li><p></p></li>
-                    <li><p></p></li>
-                    <li><p></p></li>
-                    <li><p></p></li>
-                    <li><p></p></li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
+                    <li>
+                        <p></p>
+                    </li>
                 </ul>
             </div>
         </template>
 
-        <div id="weather-options-container">
-            <label for="options-latitude">Latitude</label>
-            <input type="checkbox" id="options-latitude">
+        <button id="open-modal-btn" class="modal-btn">
+            <i class="fa-solid fa-gear fa-rotate-90 fa-sm"></i>
+        </button>
 
-            <label for="options-longitude">Longitude</label>
-            <input type="checkbox" id="options-longitude">
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <div id="weather-options-container">
+                    <div class="option">
+                        <label for="options-latitude">Latitude</label>
+                        <input type="checkbox" id="options-latitude">
+                    </div>
 
-            <label for="options-rain-accumulation">Rain Accumulation</label>
-            <input type="checkbox" id="options-rain-accumulation">
+                    <div class="option">
+                        <label for="options-longitude">Longitude</label>
+                        <input type="checkbox" id="options-longitude">
+                    </div>
 
-            <label for="options-wind-average">Wind Average</label>
-            <input type="checkbox" id="options-wind-average">
+                    <div class="option">
+                        <label for="options-rain-accumulation">Rain Accumulation</label>
+                        <input type="checkbox" id="options-rain-accumulation">
+                    </div>
 
-            <label for="options-direction-wind">Direction Wind</label>
-            <input type="checkbox" id="options-direction-wind">
+                    <div class="option">
+                        <label for="options-wind-average">Wind Average</label>
+                        <input type="checkbox" id="options-wind-average">
+                    </div>
+
+                    <div class="option">
+                        <label for="options-direction-wind">Direction Wind</label>
+                        <input type="checkbox" id="options-direction-wind">
+                    </div>
+                </div>
+            </div>
         </div>
+
 
     </main>
 
-    <footer class="footer-general"> 
-        <p>OCTANIA &copy; | bclr | FI$$ | Tagada</p> 
+    <footer class="footer-general">
+        <p>OCTANIA &copy; | bclr | FI$$ | Tagada</p>
     </footer>
 
     <script type="module" src="../script/main.js"></script>
