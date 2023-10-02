@@ -70,10 +70,10 @@ export class WeatherCard{
 
     toHTML(optionsTable) {
         if(!('content' in document.createElement('template'))) return;
-        let template = document.getElementById('weather_template');
+        let template = document.getElementById('weather-template');
         let clone = document.importNode(template.content, true);
-        let paragraphes = clone.getElementById('weather_list').querySelectorAll("p"); 
-        let options = clone.getElementById('option_list').querySelectorAll("p");
+        let paragraphes = clone.getElementById('weather-list').querySelectorAll("p"); 
+        let options = clone.getElementById('option-list').querySelectorAll("p");
 
         paragraphes[0].textContent = `température min (C°): ${this.temperatureMin}`;
         paragraphes[1].textContent = `température max (C°): ${this.temperatureMax}`;
@@ -90,7 +90,7 @@ export class WeatherCard{
             options[i].style.display = optionsTable[i] ? 'block' : 'none'; 
         }
 
-        let weatherContainer = document.getElementById('weather_container');
+        let weatherContainer = document.getElementById('weather-container');
 
         if(weatherContainer != null)
             document.body.removeChild(weatherContainer);
