@@ -5,6 +5,10 @@
 }
 
 
+body {
+    background-color: #333;
+}
+
 /* ===== HEADER ===== */
 .header-general {
     display: flex;
@@ -79,6 +83,32 @@ input::placeholder {
 
 
 /* ===== TEMPLATE ===== */
+
+#weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#weather-list {
+    list-style: none;
+}
+
+
+#option-list {
+    list-style: none;
+}
+
+.card-container {
+    height: 250px;
+    width: 400px;
+    padding: 20px;
+    border-radius: 50px;
+    border: 1px solid white;
+    background: linear-gradient(45deg, #353535, #000000);
+    opacity: 0.5;
+}
+
 
 
 
