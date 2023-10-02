@@ -49,6 +49,19 @@ export class WeatherCard{
         this.temperatureMax = tmax;
         this.probabilityRain = probarain;
         this.sunHours = sun_hours;
-        this.options = [4];
+        this.options = {
+            'latitude' : null,
+            'longitude' : null,
+            'cumulPluie' : null,
+            'ventMoyen' : null,
+            'directionVent' : null
+        }
+    }
+    setOption(options) {
+        this.options.latitude = options.latitude;
+        this.options.longitude = options.longitude;
+        this.options.cumulPluie = options.cumulPluie;
+        this.options.ventMoyen = options.ventMoyen;
+        this.options.directionVent = options.directionVent;
     }
 }
