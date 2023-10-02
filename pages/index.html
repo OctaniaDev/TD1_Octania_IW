@@ -22,30 +22,61 @@
         <span class="hero-title-part2">to your weather</span>
     </header>
 
-    <h2>Find everything relating to your weather</h2>
-    <input id="zipCodeInput" type="number" placeholder="Enter your zipcode...">
-    <select name="" multiple="false" id="cityNameSelect">
-        <option value="default">Choose your city...</option>
-    </select>
+    <main>
+        <div class="user-choose-general">
+            <div class="input-general">
+                <input id="zip_code_input" type="number" placeholder="Enter your zipcode...">
+            </div>
 
-    <template id="weatherTemplate">
-        <div id="weatherContainer">
-            <ul id="weatherList">
-                <li>
-                    <p></p>
-                </li>
-                <li>
-                    <p></p>
-                </li>
-                <li>
-                    <p></p>
-                </li>
-                <li>
-                    <p></p>
-                </li>
-            </ul>
+            <div class="select-general">
+                <select name="" multiple="false" id="city_name_select">
+                    <option value="default">Choose your city...</option>
+                </select>
+            </div>
         </div>
-    </template>
+
+        <template id="weather_template">
+            <div id="weather_container">
+                <ul id="weather_list">
+                    <li><p></p></li>
+                    <li><p></p></li>
+                    <li><p></p></li>
+                    <li><p></p></li>
+                </ul>
+                
+                <ul id="option_list">
+                    <li><p></p></li>
+                    <li><p></p></li>
+                    <li><p></p></li>
+                    <li><p></p></li>
+                    <li><p></p></li>
+                </ul>
+            </div>
+        </template>
+
+        <div id="weather_options_container">
+            <label for="options_latitude">Latitude</label>
+            <input type="checkbox" id="options_latitude">
+
+            <label for="options_longitude">Longitude</label>
+            <input type="checkbox" id="options_longitude">
+
+            <label for="options_rain_accumulation">Rain Accumulation</label>
+            <input type="checkbox" id="options_rain_accumulation">
+
+            <label for="options_wind_average">Wind Average</label>
+            <input type="checkbox" id="options_wind_average">
+
+            <label for="options_direction_wind">Direction Wind</label>
+            <input type="checkbox" id="options_direction_wind">
+        </div>
+
+    </main>
+
+    <footer class="footer-general"> 
+        <p>OCTANIA &copy; | bclr | FI$$ | Tagada</p> 
+    </footer>
+
     <script type="module" src="../script/main.js"></script>
 </body>
 
