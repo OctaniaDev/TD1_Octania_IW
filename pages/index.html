@@ -6,53 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instant Weather</title>
     <link rel="stylesheet" href="../styles/style.css">
-</head>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="../assets/favicon.png">
+
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap" rel="stylesheet" </head>
 
 <body>
-    <header>
-        <h1>Instant Weather</h1>
+    <header class="header-general">
+        <h1 class="h1-title">Instant Weather</h1>
+        <span class="hero-title-part1">Find everything relating</span>
+        <span class="hero-title-part2">to your weather</span>
     </header>
 
     <h2>Find everything relating to your weather</h2>
-    <input id="zip_code_input" type="number" placeholder="Enter your zipcode...">
-    <select name="" multiple="false" id="city_name_select">
+    <input id="zipCodeInput" type="number" placeholder="Enter your zipcode...">
+    <select name="" multiple="false" id="cityNameSelect">
         <option value="default">Choose your city...</option>
     </select>
 
-    <template id="weather_template">
-        <div id="weather_container">
-            <ul id="weather_list">
-                <li><p></p></li>
-                <li><p></p></li>
-                <li><p></p></li>
-                <li><p></p></li>
-            </ul>
-            <ul id="option_list">
-                <li><p></p></li>
-                <li><p></p></li>
-                <li><p></p></li>
-                <li><p></p></li>
-                <li><p></p></li>
+    <template id="weatherTemplate">
+        <div id="weatherContainer">
+            <ul id="weatherList">
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
+                <li>
+                    <p></p>
+                </li>
             </ul>
         </div>
     </template>
-    
-    <div id="weather_options_container">
-        <label for="options_latitude">Latitude</label>
-        <input type="checkbox" id="options_latitude">
-
-        <label for="options_longitude">Longitude</label>
-        <input type="checkbox" id="options_longitude">
-
-        <label for="options_rain_accumulation">Rain Accumulation</label>
-        <input type="checkbox" id="options_rain_accumulation">
-
-        <label for="options_wind_average">Wind Average</label>
-        <input type="checkbox" id="options_wind_average">
-
-        <label for="options_direction_wind">Direction Wind</label>
-        <input type="checkbox" id="options_direction_wind">
-    </div>
     <script type="module" src="../script/main.js"></script>
 </body>
 
