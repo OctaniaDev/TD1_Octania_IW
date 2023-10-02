@@ -31,7 +31,8 @@ function createList() {
 async function setWeatherInformations(request) {
     try {
         let result = await weather.setWeatherInformations(request);
-        console.table(result);
+        let clone = result.toHTML();
+        
     } catch(err) {
         console.error(err);
     }
