@@ -68,7 +68,7 @@ export class WeatherCard{
         this.options.directionWind = options.directionWind;
     }
 
-    toHTML() {
+    toHTML(optionsTable) {
         if(!('content' in document.createElement('template'))) return;
         let template = document.getElementById('weather_template');
         let clone = document.importNode(template.content, true);
@@ -80,11 +80,16 @@ export class WeatherCard{
         paragraphes[2].textContent = `probabilité pluie: ${this.probabilityRain}%`;
         paragraphes[3].textContent = `heures d'ensoleillement: ${this.sunHours}`;
 
-        options[0].textContent = this.options.latitude; 
-        options[1].textContent =  this.options.longitude;
-        options[2].textContent =  this.options.rainAccumulation;
-        options[3].textContent =  this.options.windAverage;
-        options[4].textContent =  this.options.directionWind;
+        options[0].textContent = 'latitude : ' +this.options.latitude; 
+        options[1].textContent =  'longitude : ' +this.options.longitude;
+        options[2].textContent =  'rain accumulation : ' +this.options.rainAccumulation;
+        options[3].textContent =  'wind average : ' + this.options.windAverage;
+        options[4].textContent =  'direction wind : ' +this.options.directionWind;
+        
+        for(let i = 0; i < optionsTable.length; i++) {
+            options[i].style.display = optionsTable[i] ? 'block' : 'none'; 
+        }
+
         let weatherContainer = document.getElementById('weather_container');
 
         if(weatherContainer != null)

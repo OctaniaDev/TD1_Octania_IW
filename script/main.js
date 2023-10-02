@@ -1,20 +1,34 @@
 import * as zipCode from "./zipCode.js"
 import * as weather from "./weather.js"
 
-let zipCodeDisplay = document.getElementById('zipCodeInput');
-let cityListDisplay = document.getElementById('cityNameSelect');
+let zipCodeDisplay = document.getElementById('zip_code_input');
+let cityListDisplay = document.getElementById('city_name_select');
+let optionsTable = [false, false, false, false, false];
 
 zipCodeDisplay.addEventListener('keypress', e => {
-    if (e.key === 'Enter') createList()
-})
+    if (e.key === 'Enter') createList();
+});
 
 cityListDisplay.addEventListener('change', () => {
     let collection = cityListDisplay.selectedOptions
     if(collection[0].value != 'default') {
-        const weatherAPI = new weather.WeatherAPI(collection[0].value)
+        const weatherAPI = new weather.WeatherAPI(collection[0].value);
         setWeatherInformations(weatherAPI.getRequeteResult());
     }
-})
+});
+
+function eventHandlerOptions() {
+    let weatherOptionsContainer = document.getElementById('weather_options_container');
+    let options = weatherOptionsContainer.querySelectorAll('input');
+    for(let i = 0; i < options.length; i++) {
+        options[i].addEventListener('change', e => {
+            if(e.target.checked)
+                optionsTable[i] = true;
+            else
+                optionsTable[i] = false;
+        });
+    }
+}
 
 function createList() {
     let request = zipCode.getHttpRequest(zipCodeDisplay)
@@ -30,8 +44,10 @@ function createList() {
 async function setWeatherInformations(request) {
     try {
         let result = await weather.setWeatherInformations(request);
-        result.toHTML();
+        return result.toHTML(optionsTable);
     } catch(err) {
         console.error(err);
     }
 }
+
+eventHandlerOptions();
