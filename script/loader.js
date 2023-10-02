@@ -2,7 +2,7 @@ window.addEventListener('load', function () {
     setTimeout(function () {
         hideLoader();
         showButtonAndFooter();
-    }, 5000);
+    }, 2000);
 });
 
 function hideLoader() {
