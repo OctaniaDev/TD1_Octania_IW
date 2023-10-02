@@ -8,9 +8,9 @@ export function setupModal() {
             modal.style.display = "block";
         });
 
-        closeModalBtn.addEventListener("click", function () {
-            modal.style.display = "none";
-        });
+        // closeModalBtn.addEventListener("click", function () {
+        //     modal.style.display = "none";
+        // });
 
         window.addEventListener("click", function (event) {
             if (event.target === modal) {

@@ -68,6 +68,7 @@ input::placeholder {
     width: 200px;
     margin-left: auto;
     margin-right: auto;
+    justify-content: center
 }
 
 #city-name-select {
@@ -78,7 +79,6 @@ input::placeholder {
 
 
 /* ===== TEMPLATE ===== */
-
 
 
 
@@ -150,11 +150,6 @@ label {
     margin-right: 5px;
 }
 
-
-
-
-
-
 /* ===== FOOTER ==== */
 
 .footer-general {
@@ -166,4 +161,55 @@ label {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* ===== LOADER ===== */
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.loader {
+    font-size: 48px;
+    color: #3498db;
+    animation: bounce 2s infinite;
+}
+
+.content {
+    display: none;
+}
+
+.loaded .content {
+    display: block;
+}
+
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-20px);
+    }
+
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/*===== RANDOM =====*/
+
+.hidden {
+    display: none;
 }
