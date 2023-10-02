@@ -52,7 +52,7 @@ input::placeholder {
     
 }
 
-#zipCodeInput {
+#zip-code-input {
     background-color: #353535;
     border-radius: 10px;
     padding: 4px 10px;
@@ -70,7 +70,7 @@ input::placeholder {
     margin-right: auto;
 }
 
-#cityNameSelect {
+#city-name-select {
     background-color: #353535;
     padding: 4px 10px;
     color: white;
@@ -79,7 +79,7 @@ input::placeholder {
 
 /* ===== TEMPLATE ===== */
 
-#weatherContainer {
+#weather-container {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -87,7 +87,7 @@ input::placeholder {
     margin-right: auto;
 }
 
-#weatherList {
+#weather-list, #option-list {
     list-style: none;
     text-transform: capitalize;
 }
