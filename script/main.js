@@ -4,6 +4,7 @@ import * as weather from "./weather.js"
 let zipCodeDisplay = document.getElementById('zip-code-input');
 let cityListDisplay = document.getElementById('city-name-select');
 let optionsTable = [false, false, false, false, false];
+let weatherCard;
 
 zipCodeDisplay.addEventListener('keypress', e => {
     if (e.key === 'Enter') createList();
@@ -26,6 +27,8 @@ function eventHandlerOptions() {
                 optionsTable[i] = true;
             else
                 optionsTable[i] = false;
+            if(weatherCard != null)
+                weatherCard.toHTML(optionsTable);
         });
     }
 }
@@ -43,8 +46,8 @@ function createList() {
 
 async function setWeatherInformations(request) {
     try {
-        let result = await weather.setWeatherInformations(request);
-        return result.toHTML(optionsTable);
+        weatherCard = await weather.setWeatherInformations(request);
+        weatherCard.toHTML(optionsTable);
     } catch(err) {
         console.error(err);
     }
