@@ -67,15 +67,26 @@ export class WeatherCard{
     }
 
     toHTML() {
-        setWeatherInformations()
-        if(!('content' in document.createElement('template'))) return
-        let template = document.getElementById('weatherTemplate')
-        let clone = document.importNode(template.content, true)
-        let paragraphe = clone.querySelectorAll("p") 
-        paragraphe[0].textContent = `température min (C°): ${this.options.temperatureMin}`
-        paragraphe[1].textContent = `température max (C°): ${this.temperatureMax}`
-        paragraphe[2].textContent = `probabilité pluie: ${this.probabilityRain}%`
-        paragraphe[3].textContent = `heures d'ensoleillement: ${this.sunHours}`
-        return clone;
+        if(!('content' in document.createElement('template'))) return;
+        let template = document.getElementById('weather_template');
+        let clone = document.importNode(template.content, true);
+        let paragraphes = clone.getElementById('weather_list').querySelectorAll("p"); 
+        let options = clone.getElementById('option_list').querySelectorAll("p");
+
+        paragraphes[0].textContent = `température min (C°): ${this.temperatureMin}`;
+        paragraphes[1].textContent = `température max (C°): ${this.temperatureMax}`;
+        paragraphes[2].textContent = `probabilité pluie: ${this.probabilityRain}%`;
+        paragraphes[3].textContent = `heures d'ensoleillement: ${this.sunHours}`;
+
+        options[0].textContent = this.options.latitude; 
+        options[1].textContent =  this.options.longitude;
+        options[2].textContent =  this.options.rainAccumulation;
+        options[3].textContent =  this.options.windAverage;
+        options[4].textContent =  this.options.directionWind;
+        let weatherContainer = document.getElementById('weather_container');
+
+        if(weatherContainer != null)
+            document.body.removeChild(weatherContainer);
+        document.body.appendChild(clone);
     }
 }
