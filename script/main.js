@@ -13,7 +13,7 @@ cityListDisplay.addEventListener('change', () => {
     let collection = cityListDisplay.selectedOptions
     if(collection[0].value != 'default') {
         const weatherAPI = new weather.WeatherAPI(collection[0].value)
-        setWeatherInformations(weatherAPI.getRequeteResult())
+        setWeatherInformations(weatherAPI.getRequeteResult());
     }
 })
 
@@ -29,5 +29,10 @@ function createList() {
 }
 
 async function setWeatherInformations(request) {
-    weather.setWeatherInformations(request)
+    try {
+        let result = await weather.setWeatherInformations(request);
+        console.table(result);
+    } catch(err) {
+        console.error(err);
+    }
 }

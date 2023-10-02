@@ -18,29 +18,30 @@ export class WeatherAPI {
                 throw new Error('http response error')
             }
             return response.json()
-        })
+        }).then(data => data);
     }
 }
 
 export async function setWeatherInformations(request){
-    if(!('content' in document.createElement('template'))) return
-    await request.then((data) => {
-        let template = document.getElementById('weatherTemplate')
-        let clone = document.importNode(template.content, true)
-        let paragraphe = clone.querySelectorAll("p") 
-        paragraphe[0].textContent = `température min (C°): ${data.forecast.tmin}`
-        paragraphe[1].textContent = `température max (C°): ${data.forecast.tmax}`
-        paragraphe[2].textContent = `probabilité pluie: ${data.forecast.probarain}%`
-        paragraphe[3].textContent = `heures d'ensoleillement: ${data.forecast.sun_hours}`
-        return clone
-    })
-    .then(clone => {
-        let weatherContainer = document.getElementById('weatherContainer')
-        if(weatherContainer != null)
-            document.body.removeChild(weatherContainer)
-        document.body.appendChild(clone)
-    })
-    .catch(err => {console.error('Error : ', err)})
+    try {
+        let data = await request;
+        let weatherCard = new WeatherCard(
+            data.forecast.tmin,
+            data.forecast.tmax,
+            data.forecast.probarain,
+            data.forecast.sun_hours
+        )
+        weatherCard.setOption({
+            latitude : data.city.latitude,
+            longitude : data.city.longitude,
+            rainAccumulation : data.forecast.rr1,
+            windAverage : data.forecast.wind10m,
+            directionWind : data.forecast.dirwind10m
+        });
+        return weatherCard;
+    } catch(err) {
+        throw err;
+    }
 }
 
 export class WeatherCard{
@@ -50,18 +51,31 @@ export class WeatherCard{
         this.probabilityRain = probarain;
         this.sunHours = sun_hours;
         this.options = {
-            'latitude' : null,
-            'longitude' : null,
-            'cumulPluie' : null,
-            'ventMoyen' : null,
-            'directionVent' : null
+            latitude : null,
+            longitude : null,
+            rainAccumulation : null,
+            windAverage : null,
+            directionWind : null
         }
     }
     setOption(options) {
         this.options.latitude = options.latitude;
         this.options.longitude = options.longitude;
-        this.options.cumulPluie = options.cumulPluie;
-        this.options.ventMoyen = options.ventMoyen;
-        this.options.directionVent = options.directionVent;
+        this.options.rainAccumulation = options.rainAccumulation;
+        this.options.windAverage = options.windAverage;
+        this.options.directionWind = options.directionWind;
+    }
+
+    toHTML() {
+        setWeatherInformations()
+        if(!('content' in document.createElement('template'))) return
+        let template = document.getElementById('weatherTemplate')
+        let clone = document.importNode(template.content, true)
+        let paragraphe = clone.querySelectorAll("p") 
+        paragraphe[0].textContent = `température min (C°): ${this.options.temperatureMin}`
+        paragraphe[1].textContent = `température max (C°): ${this.temperatureMax}`
+        paragraphe[2].textContent = `probabilité pluie: ${this.probabilityRain}%`
+        paragraphe[3].textContent = `heures d'ensoleillement: ${this.sunHours}`
+        return clone;
     }
 }
