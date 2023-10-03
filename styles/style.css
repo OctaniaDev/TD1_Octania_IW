@@ -104,12 +104,6 @@ input::placeholder {
     background: var(--base-gray-800, #16161F);
 }
 
-.test {
-    margin-bottom: 20px;
-    border-bottom: 1px solid white;
-    padding: 4px 16px;
-}
-
 
 .card-container { 
     height: 250px;
@@ -122,28 +116,29 @@ input::placeholder {
 
 .top-section-card {
     display: flex;
+    flex-direction: row; 
     justify-content: space-between;
     align-items: center;
 }
 
 .date-container {
-    text-align: center;
+    text-align: left; 
     margin: 10px 0;
 }
 
 .bottom-section-card {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: left;
 }
 
-.left-section {
-    display: flex;
-    align-items: center;
-}
+.img {
+    width: 30%;
+} 
 
-.right-section img {
-    max-width: 50px; /* Ajustez la taille de l'image selon vos besoins */
+.temperatureActuelle {
+    font-size: 80px;
 }
 
 

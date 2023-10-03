@@ -89,10 +89,9 @@ export class WeatherCard{
 
         paragraphes[0].textContent = this.city;
         paragraphes[1].textContent = this.hour;
-        paragraphes[3].textContent = this.date;
-        paragraphes[4].textContent = this.temperatureMin;
-        paragraphes[5].textContent = this.temperatureMin;
-        paragraphes[6].textContent = this.temperatureMax;
+        paragraphes[2].textContent = this.date;
+        paragraphes[3].textContent = this.temperatureMin;
+        paragraphes[4].textContent = `${this.temperatureMin} / ${this.temperatureMax}`;
         //paragraphes[7].textContent = `${weatherIcons(this.weather)}`;
         
         options[0].textContent = `${this.probabilityRain}%`;
