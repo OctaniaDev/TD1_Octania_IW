@@ -382,6 +382,26 @@ label {
     }
 }
 
+/* ===== LOWER TEMPLATE ===== */
+
+#lower-weather-container {
+    margin-top: 20px;
+    margin-bottom: 500px;
+    text-align: center;
+}
+
+.flex-container {
+    list-style: none;
+}
+
+.test {
+    width: 10%;
+    height: auto;
+    display: inline-block;
+    background: red;
+}
+
+
 /*===== RANDOM =====*/
 
 .hidden {
