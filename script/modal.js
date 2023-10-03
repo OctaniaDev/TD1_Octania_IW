@@ -5,6 +5,7 @@ export function setupModal() {
         const closeModalBtn = document.getElementById("close-modal-btn");
         const closeCross = document.getElementById("close-cross");
         const saveModalBtn = document.getElementById("save-modal-btn");
+        const resetModalBtn = document.getElementById("reset-modal-btn");
 
         openModalBtn.addEventListener("click", function () {
             modal.style.display = "block";
@@ -15,6 +16,10 @@ export function setupModal() {
         });
 
         closeCross.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        resetModalBtn.addEventListener("click", function () {
             modal.style.display = "none";
         });
 

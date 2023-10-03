@@ -266,7 +266,6 @@ input::placeholder {
     flex-direction: row;
     justify-content: space-between;
     width: 90%;
-    align-items: left;
     margin: 0 auto;
     margin-top: 10px;
 }
@@ -276,6 +275,22 @@ input::placeholder {
     color: white;
     padding: 10px 20px;
     border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.button-container-reset {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.close-reset {
+    background-color: transparent;
+    color: black;
+    padding: 2px 4px;
+    border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 10px;
