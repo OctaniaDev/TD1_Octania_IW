@@ -47,13 +47,17 @@ function createList() {
         });
 }
 
-function displayWeatherCards() {
+function removeWeatherCards() {
     let weatherContainer = document.getElementById('weather-container');
-    if(weatherContainer != null)
-        document.body.removeChild(weatherContainer);
-    for(let i = 0; i < weatherCard.length; i++) {
-        weatherCard[0].toHTML(optionsTable);
-    }
+    let weatherLowerContainer = document.getElementById('lower-weather-container');
+    weatherContainer.innerHTML = null;
+    weatherLowerContainer.innerHTML = null;
+}
+function displayWeatherCards() {
+    removeWeatherCards();
+    weatherCard[0].toHTML(optionsTable);
+    for(let i = 1; i < weatherCard.length; i++)
+        weatherCard[i].toLowerHTML(optionsTable);
 }
 
 async function createWeatherCard(request) {
