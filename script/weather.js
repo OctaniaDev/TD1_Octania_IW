@@ -7,12 +7,12 @@ export class WeatherAPI {
         this.codeInsee = codeInsee;
     }
 
-    getHttpRequest() {
+    getHTTP() {
         return this.url + 'forecast/daily?insee=' + this.codeInsee + '&start=0&end=6&token=' + this.token;
     }
     
-    getRequeteResult() {
-        return fetch(this.getHttpRequest())
+    getRequestResult() {
+        return fetch(this.getHTTP())
         .then(response => {
             if(!response.ok || this.codeInsee == '' || this.codeInsee == null) {
                 throw new Error('http response error');
@@ -26,14 +26,18 @@ export class WeatherAPI {
 export async function createWeatherCard(request){
     try {
         let data = await request;
-        console.log(data)
         let weatherCardWeek = [7];
+        let date = new Date()
         for(let i = 0; i < 7; i++) {
             weatherCardWeek[i] = new WeatherCard(
                 data.forecast[i].tmin,
                 data.forecast[i].tmax,
                 data.forecast[i].probarain,
-                data.forecast[i].sun_hours
+                data.forecast[i].sun_hours,
+                data.forecast[i].weather,
+                data.city.name,
+                date.getHours() + ':' + date.getMinutes(),
+                date.toString().split(' ').slice(0, 4).join(' ')
             )
             weatherCardWeek[i].setOption({
                 latitude : data.city.latitude,
@@ -50,11 +54,15 @@ export async function createWeatherCard(request){
 }
 
 export class WeatherCard{
-    constructor(tmin, tmax, probarain, sun_hours) {
+    constructor(tmin, tmax, probarain, sun_hours, weather, city, hour, date) {
         this.temperatureMin = tmin;
         this.temperatureMax = tmax;
         this.probabilityRain = probarain;
         this.sunHours = sun_hours;
+        this.weather = weather,
+        this.city = city,
+        this.date = date,
+        this.hour = hour,
         this.options = {
             latitude : null,
             longitude : null,

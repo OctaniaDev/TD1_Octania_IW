@@ -14,7 +14,7 @@ cityListDisplay.addEventListener('change', () => {
     let collection = cityListDisplay.selectedOptions
     if(collection[0].value != 'default') {
         const weatherAPI = new weather.WeatherAPI(collection[0].value);
-        createWeatherCard(weatherAPI.getRequeteResult());
+        createWeatherCard(weatherAPI.getRequestResult());
     }
 });
 
@@ -34,7 +34,7 @@ function eventHandlerOptions() {
 }
 
 function createList() {
-    let request = zipCode.getHttpRequest(zipCodeDisplay)
+    let request = zipCode.getRequestResult(zipCodeDisplay)
     request
     .then(data => {
         zipCode.createList(data, cityListDisplay);
