@@ -87,16 +87,21 @@ export class WeatherCard{
         let paragraphes = clone.getElementById('weather-list').querySelectorAll("p");
         let options = clone.getElementById('option-list').querySelectorAll("p");
 
-        paragraphes[0].textContent = `tempÃ©rature min (CÂ°): ${this.temperatureMin}`;
-        paragraphes[1].textContent = `tempÃ©rature max (CÂ°): ${this.temperatureMax}`;
-        paragraphes[2].textContent = `probabilitÃ© pluie: ${this.probabilityRain}%`;
-        paragraphes[3].textContent = `heures d'ensoleillement: ${this.sunHours}`;
-
-        options[0].textContent = 'latitude : ' + this.options.latitude;
-        options[1].textContent = 'longitude : ' + this.options.longitude;
-        options[2].textContent = 'rain accumulation : ' + this.options.rainAccumulation;
-        options[3].textContent = 'wind average : ' + this.options.windAverage;
-        options[4].textContent = 'direction wind : ' + this.options.directionWind;
+        paragraphes[0].textContent = this.city;
+        paragraphes[1].textContent = this.hour;
+        paragraphes[3].textContent = this.date;
+        paragraphes[4].textContent = this.temperatureMin;
+        paragraphes[5].textContent = this.temperatureMin;
+        paragraphes[6].textContent = this.temperatureMax;
+        //paragraphes[7].textContent = `${weatherIcons(this.weather)}`;
+        
+        options[0].textContent = `${this.probabilityRain}%`;
+        options[1].textContent = `${this.sunHours}h`;
+        options[2].textContent = this.options.latitude;
+        options[3].textContent = this.options.longitude;
+        options[4].textContent = this.options.rainAccumulation;
+        options[5].textContent = this.options.windAverage;
+        options[6].textContent = this.options.directionWind;
 
         for (let i = 0; i < optionsTable.length; i++) {
             options[i].style.display = optionsTable[i] ? 'block' : 'none';

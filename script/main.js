@@ -64,5 +64,5 @@ async function createWeatherCard(request) {
         console.error(err);
     }
 }
-modal.setupModal();
+// modal.setupModal();
 eventHandlerOptions();
