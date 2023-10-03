@@ -27,8 +27,10 @@ export async function createWeatherCard(request){
     try {
         let data = await request;
         let weatherCardWeek = [7];
-        let date = new Date()
+        let date = new Date();
         for(let i = 0; i < 7; i++) {
+            let hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+            let minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
             weatherCardWeek[i] = new WeatherCard(
                 data.forecast[i].tmin,
                 data.forecast[i].tmax,
@@ -36,7 +38,7 @@ export async function createWeatherCard(request){
                 data.forecast[i].sun_hours,
                 data.forecast[i].weather,
                 data.city.name,
-                date.getHours() + ':' + date.getMinutes(),
+                hours + ':' + minutes,
                 date.toString().split(' ').slice(0, 4).join(' ')
             )
             weatherCardWeek[i].setOption({
@@ -46,7 +48,9 @@ export async function createWeatherCard(request){
                 windAverage : data.forecast[i].wind10m,
                 directionWind : data.forecast[i].dirwind10m
             });
+            date.setDate(date.getDate() + 1);
         }
+        console.log(weatherCardWeek);
         return weatherCardWeek;
     } catch(err) {
         throw err;
@@ -89,10 +93,10 @@ export class WeatherCard{
 
         paragraphes[0].textContent = this.city;
         paragraphes[1].textContent = this.hour;
-        paragraphes[3].textContent = this.date;
+        paragraphes[2].textContent = this.date;
+        paragraphes[3].textContent = this.temperatureMin;
         paragraphes[4].textContent = this.temperatureMin;
-        paragraphes[5].textContent = this.temperatureMin;
-        paragraphes[6].textContent = this.temperatureMax;
+        paragraphes[5].textContent = this.temperatureMax;
         //paragraphes[7].textContent = `${weatherIcons(this.weather)}`;
         
         options[0].textContent = `${this.probabilityRain}%`;
@@ -106,7 +110,7 @@ export class WeatherCard{
         for (let i = 0; i < optionsTable.length; i++) {
             options[i].style.display = optionsTable[i] ? 'block' : 'none';
         }
-        document.body.appendChild(clone);
+        document.getElementById('weather-container').appendChild(clone);
     }
 
     toLowerHTML() {
@@ -119,7 +123,7 @@ export class WeatherCard{
         paragraphes[1].textContent = this.temperatureMin;
         paragraphes[2].textContent = this.temperatureMin;
         paragraphes[3].textContent = this.temperatureMax;
-        document.getElementById('container-lower-weather').appendChild(clone);
+        document.getElementById('lower-weather-container').appendChild(clone);
 
     }
 }
