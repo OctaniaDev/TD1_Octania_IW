@@ -1,7 +1,7 @@
 import * as zipCode from "./zipCode.js"
 import * as weather from "./weather.js"
 import * as modal from './modal.js';
-// import * as loader from './loader.js';
+import * as loader from './loader.js';
 
 
 let zipCodeDisplay = document.getElementById('zip-code-input');
@@ -30,7 +30,7 @@ function eventHandlerOptions() {
                 optionsTable[i] = true;
             else
                 optionsTable[i] = false;
-            if(weatherCard != null)
+            if (weatherCard != null)
                 displayWeatherCards();
         });
     }
@@ -56,7 +56,7 @@ function removeWeatherCards() {
 function displayWeatherCards() {
     removeWeatherCards();
     weatherCard[0].toHTML(optionsTable);
-    for(let i = 1; i < weatherCard.length; i++)
+    for (let i = 1; i < weatherCard.length; i++)
         weatherCard[i].toLowerHTML(optionsTable);
 }
 
@@ -64,9 +64,9 @@ async function createWeatherCard(request) {
     try {
         weatherCard = await weather.createWeatherCard(request);
         displayWeatherCards();
-    } catch(err) {
+    } catch (err) {
         console.error(err);
     }
 }
-// modal.setupModal();
+modal.setupModal();
 eventHandlerOptions();

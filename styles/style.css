@@ -230,9 +230,11 @@ input::placeholder {
     background-color: transparent;
     border: none;
     cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
+}
+
+.center-button {
+    display: flex;
+    margin: 0 auto;
 }
 
 .modal-btn i {
@@ -246,6 +248,47 @@ input::placeholder {
 
 .modal-content {
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+}
+
+.close-cross {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    align-items: left;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.close-button {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.save-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
 }
 
 #weather-options-container {
