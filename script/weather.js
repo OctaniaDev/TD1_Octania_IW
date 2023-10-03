@@ -27,8 +27,10 @@ export async function createWeatherCard(request) {
     try {
         let data = await request;
         let weatherCardWeek = [7];
-        let date = new Date()
-        for (let i = 0; i < 7; i++) {
+        let date = new Date();
+        for(let i = 0; i < 7; i++) {
+            let hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+            let minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
             weatherCardWeek[i] = new WeatherCard(
                 data.forecast[i].tmin,
                 data.forecast[i].tmax,
@@ -36,7 +38,7 @@ export async function createWeatherCard(request) {
                 data.forecast[i].sun_hours,
                 data.forecast[i].weather,
                 data.city.name,
-                date.getHours() + ':' + date.getMinutes(),
+                hours + ':' + minutes,
                 date.toString().split(' ').slice(0, 4).join(' ')
             )
             weatherCardWeek[i].setOption({
@@ -46,7 +48,9 @@ export async function createWeatherCard(request) {
                 windAverage: data.forecast[i].wind10m,
                 directionWind: data.forecast[i].dirwind10m
             });
+            date.setDate(date.getDate() + 1);
         }
+        console.log(weatherCardWeek);
         return weatherCardWeek;
     } catch (err) {
         throw err;
@@ -105,6 +109,20 @@ export class WeatherCard {
         for (let i = 0; i < optionsTable.length; i++) {
             options[i + 2].style.display = optionsTable[i] ? 'block' : 'none';
         }
-        document.body.appendChild(clone);
+        document.getElementById('weather-container').appendChild(clone);
+    }
+
+    toLowerHTML() {
+        if(!('content' in document.createElement('template'))) return;
+        let template = document.getElementById('lower-weather-template');
+        let clone = document.importNode(template.content, true);
+        let paragraphes = clone.getElementById('lower-weathercard').querySelectorAll('p');
+        paragraphes[0].textContent = this.date;
+        //paragraphes[1].textContent = `${weatherIcons(this.weather)}`;
+        paragraphes[1].textContent = this.temperatureMin;
+        paragraphes[2].textContent = this.temperatureMin;
+        paragraphes[3].textContent = this.temperatureMax;
+        document.getElementById('lower-weather-container').appendChild(clone);
+
     }
 }
