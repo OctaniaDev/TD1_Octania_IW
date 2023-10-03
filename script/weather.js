@@ -108,4 +108,18 @@ export class WeatherCard{
         }
         document.body.appendChild(clone);
     }
+
+    toLowerHTML() {
+        if(!('content' in document.createElement('template'))) return;
+        let template = document.getElementById('lower-weather-template');
+        let clone = document.importNode(template.content, true);
+        let paragraphes = clone.getElementById('lower-weathercard').querySelectorAll('p');
+        paragraphes[0].textContent = this.date;
+        //paragraphes[1].textContent = `${weatherIcons(this.weather)}`;
+        paragraphes[1].textContent = this.temperatureMin;
+        paragraphes[2].textContent = this.temperatureMin;
+        paragraphes[3].textContent = this.temperatureMax;
+        document.getElementById('container-lower-weather').appendChild(clone);
+
+    }
 }
