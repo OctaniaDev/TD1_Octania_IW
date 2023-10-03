@@ -45,8 +45,48 @@
                 </select>
             </div>
         </div>
-        
+
         <div id="weather-container">
+        </div>
+
+        <button id="open-modal-btn" class="modal-btn center-button">
+            <i class="fa-solid fa-gear fa-rotate-90 fa-sm"></i>
+        </button>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close-cross" id="close-cross">&times;</span>
+                <div id="weather-options-container">
+                    <div class="option">
+                        <label for="options-latitude">Latitude</label>
+                        <input type="checkbox" id="options-latitude">
+                    </div>
+
+                    <div class="option">
+                        <label for="options-longitude">Longitude</label>
+                        <input type="checkbox" id="options-longitude">
+                    </div>
+
+                    <div class="option">
+                        <label for="options-rain-accumulation">Rain Accumulation</label>
+                        <input type="checkbox" id="options-rain-accumulation">
+                    </div>
+
+                    <div class="option">
+                        <label for="options-wind-average">Wind Average</label>
+                        <input type="checkbox" id="options-wind-average">
+                    </div>
+
+                    <div class="option">
+                        <label for="options-direction-wind">Direction Wind</label>
+                        <input type="checkbox" id="options-direction-wind">
+                    </div>
+                    <div class="button-container">
+                        <button id="save-modal-btn" class="save-button">Save</button>
+                        <button id="close-modal-btn" class="close-button">Close</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div id="lower-weather-container">
@@ -116,42 +156,9 @@
             </ul>
         </template>
 
-        <!--<button id="open-modal-btn" class="modal-btn">
-            <i class="fa-solid fa-gear fa-rotate-90 fa-sm"></i>
-        </button>
 
-        <div id="modal" class="modal">
-            <div class="modal-content">-->
-        <div id="weather-options-container">
-            <div class="option">
-                <label for="options-latitude">Latitude</label>
-                <input type="checkbox" id="options-latitude">
-            </div>
 
-            <div class="option">
-                <label for="options-longitude">Longitude</label>
-                <input type="checkbox" id="options-longitude">
-            </div>
-
-            <div class="option">
-                <label for="options-rain-accumulation">Rain Accumulation</label>
-                <input type="checkbox" id="options-rain-accumulation">
-            </div>
-
-            <div class="option">
-                <label for="options-wind-average">Wind Average</label>
-                <input type="checkbox" id="options-wind-average">
-            </div>
-
-            <div class="option">
-                <label for="options-direction-wind">Direction Wind</label>
-                <input type="checkbox" id="options-direction-wind">
-            </div>
-        </div>
-        <!--</div>
-        </div>-->
-
-       <template id="lower-weather-template">
+        <template id="lower-weather-template">
             <ul id="lower-weathercard">
                 <li>
                     <p></p>
