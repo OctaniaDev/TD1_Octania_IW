@@ -8,7 +8,7 @@ export class WeatherAPI {
     }
 
     getHttpRequest() {
-        return this.url + 'forecast/daily/0?insee=' + this.codeInsee + '&token=' + this.token;
+        return this.url + 'forecast/daily?insee=' + this.codeInsee + '&start=0&end=6&token=' + this.token;
     }
     
     getRequeteResult() {
@@ -23,23 +23,27 @@ export class WeatherAPI {
     }
 }
 
-export async function setWeatherInformations(request){
+export async function createWeatherCard(request){
     try {
         let data = await request;
-        let weatherCard = new WeatherCard(
-            data.forecast.tmin,
-            data.forecast.tmax,
-            data.forecast.probarain,
-            data.forecast.sun_hours
-        )
-        weatherCard.setOption({
-            latitude : data.city.latitude,
-            longitude : data.city.longitude,
-            rainAccumulation : data.forecast.rr1,
-            windAverage : data.forecast.wind10m,
-            directionWind : data.forecast.dirwind10m
-        });
-        return weatherCard;
+        console.log(data)
+        let weatherCardWeek = [7];
+        for(let i = 0; i < 7; i++) {
+            weatherCardWeek[i] = new WeatherCard(
+                data.forecast[i].tmin,
+                data.forecast[i].tmax,
+                data.forecast[i].probarain,
+                data.forecast[i].sun_hours
+            )
+            weatherCardWeek[i].setOption({
+                latitude : data.city.latitude,
+                longitude : data.city.longitude,
+                rainAccumulation : data.forecast[i].rr1,
+                windAverage : data.forecast[i].wind10m,
+                directionWind : data.forecast[i].dirwind10m
+            });
+        }
+        return weatherCardWeek;
     } catch(err) {
         throw err;
     }
@@ -75,9 +79,9 @@ export class WeatherCard{
         let paragraphes = clone.getElementById('weather-list').querySelectorAll("p"); 
         let options = clone.getElementById('option-list').querySelectorAll("p");
 
-        paragraphes[0].textContent = `température min (C°): ${this.temperatureMin}`;
-        paragraphes[1].textContent = `température max (C°): ${this.temperatureMax}`;
-        paragraphes[2].textContent = `probabilité pluie: ${this.probabilityRain}%`;
+        paragraphes[0].textContent = `tempÃ©rature min (CÂ°): ${this.temperatureMin}`;
+        paragraphes[1].textContent = `tempÃ©rature max (CÂ°): ${this.temperatureMax}`;
+        paragraphes[2].textContent = `probabilitÃ© pluie: ${this.probabilityRain}%`;
         paragraphes[3].textContent = `heures d'ensoleillement: ${this.sunHours}`;
 
         options[0].textContent = 'latitude : ' +this.options.latitude; 
@@ -89,11 +93,6 @@ export class WeatherCard{
         for(let i = 0; i < optionsTable.length; i++) {
             options[i].style.display = optionsTable[i] ? 'block' : 'none'; 
         }
-
-        let weatherContainer = document.getElementById('weather-container');
-
-        if(weatherContainer != null)
-            document.body.removeChild(weatherContainer);
         document.body.appendChild(clone);
     }
 }

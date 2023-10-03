@@ -14,7 +14,7 @@ cityListDisplay.addEventListener('change', () => {
     let collection = cityListDisplay.selectedOptions
     if(collection[0].value != 'default') {
         const weatherAPI = new weather.WeatherAPI(collection[0].value);
-        setWeatherInformations(weatherAPI.getRequeteResult());
+        createWeatherCard(weatherAPI.getRequeteResult());
     }
 });
 
@@ -28,7 +28,7 @@ function eventHandlerOptions() {
             else
                 optionsTable[i] = false;
             if(weatherCard != null)
-                weatherCard.toHTML(optionsTable);
+                displayWeatherCards();
         });
     }
 }
@@ -44,10 +44,19 @@ function createList() {
     });
 }
 
-async function setWeatherInformations(request) {
+function displayWeatherCards() {
+    let weatherContainer = document.getElementById('weather-container');
+    if(weatherContainer != null)
+        document.body.removeChild(weatherContainer);
+    for(let i = 0; i < weatherCard.length; i++) {
+        weatherCard[0].toHTML(optionsTable);
+    }
+}
+
+async function createWeatherCard(request) {
     try {
-        weatherCard = await weather.setWeatherInformations(request);
-        weatherCard.toHTML(optionsTable);
+        weatherCard = await weather.createWeatherCard(request);
+        displayWeatherCards();
     } catch(err) {
         console.error(err);
     }
