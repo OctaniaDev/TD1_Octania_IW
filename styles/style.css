@@ -8,7 +8,7 @@
 body {
     background-color: red;
     padding: 0;
-    margin: 0; 
+    margin: 0;
 }
 
 /* ===== HEADER ===== */
@@ -96,18 +96,9 @@ input::placeholder {
     list-style: none;
 }
 
-#option-list {
-    list-style: none;
-    color: white;
-    gap: 8px;
-    border-radius: 12px;
-    background: var(--base-gray-800, #16161F);
-}
-
-
-.card-container { 
+.card-container {
     height: 250px;
-    width: 400px;
+    width: 300px;
     padding: 20px;
     border-radius: 50px;
     border: 1px solid white;
@@ -116,29 +107,93 @@ input::placeholder {
 
 .top-section-card {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
 .date-container {
-    text-align: left; 
+    text-align: left;
     margin: 10px 0;
+}
+
+.middle-section-card {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .bottom-section-card {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: left;
+    align-items: center;
 }
 
 .img {
-    width: 30%;
-} 
+    /* width: 30%; */
+    margin-top: 40px;
+    height: 30%;
+}
 
 .temperatureActuelle {
-    font-size: 80px;
+    font-size: 85px;
+    margin-bottom: -20px;
+}
+
+/* ===== OPTION ===== */
+
+#option-list {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    list-style: none;
+    width: 80%;
+    padding: 10px;
+    color: white;
+    gap: 8px;
+    border-radius: 12px;
+    background: var(--base-gray-800, #16161F);
+}
+
+.border-bottom-selection {
+    display: flex;
+    border-bottom: 1px solid white;
+    align-items: center;
+}
+
+.border-bottom-selection-v2 {
+    display: flex;
+    align-items: center;
+}
+
+
+#option-list li span {
+    float: left;
+    width: 200px;
+    text-align: left;
+}
+
+#option-list li p {
+    float: right;
+    text-align: right;
+}
+
+#option-list li::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.img-option {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    float: left;
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
 }
 
 

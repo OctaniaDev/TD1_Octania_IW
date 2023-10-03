@@ -10,25 +10,25 @@ export class WeatherAPI {
     getHTTP() {
         return this.url + 'forecast/daily?insee=' + this.codeInsee + '&start=0&end=6&token=' + this.token;
     }
-    
+
     getRequestResult() {
         return fetch(this.getHTTP())
-        .then(response => {
-            if(!response.ok || this.codeInsee == '' || this.codeInsee == null) {
-                throw new Error('http response error');
-            }
-            return response.json();
-        })
-        .then(data => data);
+            .then(response => {
+                if (!response.ok || this.codeInsee == '' || this.codeInsee == null) {
+                    throw new Error('http response error');
+                }
+                return response.json();
+            })
+            .then(data => data);
     }
 }
 
-export async function createWeatherCard(request){
+export async function createWeatherCard(request) {
     try {
         let data = await request;
         let weatherCardWeek = [7];
         let date = new Date()
-        for(let i = 0; i < 7; i++) {
+        for (let i = 0; i < 7; i++) {
             weatherCardWeek[i] = new WeatherCard(
                 data.forecast[i].tmin,
                 data.forecast[i].tmax,
@@ -40,36 +40,36 @@ export async function createWeatherCard(request){
                 date.toString().split(' ').slice(0, 4).join(' ')
             )
             weatherCardWeek[i].setOption({
-                latitude : data.city.latitude,
-                longitude : data.city.longitude,
-                rainAccumulation : data.forecast[i].rr1,
-                windAverage : data.forecast[i].wind10m,
-                directionWind : data.forecast[i].dirwind10m
+                latitude: data.city.latitude,
+                longitude: data.city.longitude,
+                rainAccumulation: data.forecast[i].rr1,
+                windAverage: data.forecast[i].wind10m,
+                directionWind: data.forecast[i].dirwind10m
             });
         }
         return weatherCardWeek;
-    } catch(err) {
+    } catch (err) {
         throw err;
     }
 }
 
-export class WeatherCard{
+export class WeatherCard {
     constructor(tmin, tmax, probarain, sun_hours, weather, city, hour, date) {
         this.temperatureMin = tmin;
         this.temperatureMax = tmax;
         this.probabilityRain = probarain;
         this.sunHours = sun_hours;
         this.weather = weather,
-        this.city = city,
-        this.date = date,
-        this.hour = hour,
-        this.options = {
-            latitude: null,
-            longitude: null,
-            rainAccumulation: null,
-            windAverage: null,
-            directionWind: null
-        }
+            this.city = city,
+            this.date = date,
+            this.hour = hour,
+            this.options = {
+                latitude: null,
+                longitude: null,
+                rainAccumulation: null,
+                windAverage: null,
+                directionWind: null
+            }
     }
 
     setOption(options) {
@@ -90,10 +90,10 @@ export class WeatherCard{
         paragraphes[0].textContent = this.city;
         paragraphes[1].textContent = this.hour;
         paragraphes[2].textContent = this.date;
-        paragraphes[3].textContent = this.temperatureMin;
-        paragraphes[4].textContent = `${this.temperatureMin} / ${this.temperatureMax}`;
+        paragraphes[3].textContent = `${this.temperatureMin + '\u00b0c'}`;
+        paragraphes[4].textContent = `${this.temperatureMin + '\u00b0c'} / ${this.temperatureMax + '\u00b0c'}`;
         //paragraphes[7].textContent = `${weatherIcons(this.weather)}`;
-        
+
         options[0].textContent = `${this.probabilityRain}%`;
         options[1].textContent = `${this.sunHours}h`;
         options[2].textContent = this.options.latitude;
@@ -103,7 +103,7 @@ export class WeatherCard{
         options[6].textContent = this.options.directionWind;
 
         for (let i = 0; i < optionsTable.length; i++) {
-            options[i].style.display = optionsTable[i] ? 'block' : 'none';
+            options[i + 2].style.display = optionsTable[i] ? 'block' : 'none';
         }
         document.body.appendChild(clone);
     }
