@@ -1,7 +1,7 @@
 import * as zipCode from "./zipCode.js"
 import * as weather from "./weather.js"
 import * as modal from './modal.js';
-import * as loader from './loader.js';
+// import * as loader from './loader.js';
 
 
 let zipCodeDisplay = document.getElementById('zip-code-input');
