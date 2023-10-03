@@ -166,6 +166,7 @@ input::placeholder {
 
 .border-bottom-selection-v2 {
     display: flex;
+    border-bottom: none;
     align-items: center;
 }
 
