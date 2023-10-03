@@ -51,8 +51,10 @@ function displayWeatherCards() {
     let weatherContainer = document.getElementById('weather-container');
     if(weatherContainer != null)
         document.body.removeChild(weatherContainer);
-    for(let i = 0; i < weatherCard.length; i++) {
-        weatherCard[0].toHTML(optionsTable);
+
+    weatherCard[0].toHTML(optionsTable);
+    for(let i = 1; i < weatherCard.length; i++) {
+        weatherCard[i].toLowerHTML(optionsTable);
     }
 }
 
