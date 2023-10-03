@@ -1,4 +1,4 @@
-export function getHttpRequest(zipCodeDisplay){
+export function getRequestResult(zipCodeDisplay){
     let url = 'https://geo.api.gouv.fr/communes?codePostal=' + zipCodeDisplay.value;
     return fetch(url)
     .then(reponse => {
