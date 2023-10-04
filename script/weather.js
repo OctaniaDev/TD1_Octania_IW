@@ -18,8 +18,7 @@ export class WeatherAPI {
                     throw new Error('http response error');
                 }
                 return response.json();
-            })
-            .then(data => data);
+            });
     }
 }
 
@@ -112,11 +111,22 @@ export class WeatherCard {
         this.setBorderStyle(optionsContainer, length);
     }
 
+    setImage(image) {
+        let n = this.weather;
+        if(n < 2)
+            image.src = "../assets/day.svg";
+        if(n > 1 && n < 4)
+            image.src = "../assets/cloudy-day-3.svg";
+        if(n > 3 && n < 8)
+            image.src = "../assets/cloudy.svg";
+    }
+
     toHTML(optionsTable) {
         if (!('content' in document.createElement('template'))) return;
         let template = document.getElementById('weather-template');
         let clone = document.importNode(template.content, true);
-        let paragraphes = clone.getElementById('weather-list').querySelectorAll("p");
+        let list = clone.getElementById('weather-list');
+        let paragraphes = list.querySelectorAll("p");
         let options = clone.getElementById('option-list').querySelectorAll("p");
 
         paragraphes[0].textContent = this.city;
@@ -124,7 +134,7 @@ export class WeatherCard {
         paragraphes[2].textContent = this.date;
         paragraphes[3].textContent = `${this.temperatureMin}\u00b0c`;
         paragraphes[4].textContent = `${this.temperatureMin}\u00b0c / ${this.temperatureMax}\u00b0c`;
-        //paragraphes[7].textContent = `${weatherIcons(this.weather)}`;
+        this.setImage(clone.getElementById('middle-section-card-image'));
 
         options[0].textContent = `${this.probabilityRain}%`;
         options[1].textContent = `${this.sunHours}h`;
@@ -133,7 +143,6 @@ export class WeatherCard {
         options[4].textContent = this.options.rainAccumulation;
         options[5].textContent = this.options.windAverage;
         options[6].textContent = this.options.directionWind;
-
         this.displayOptions(clone, optionsTable);
         document.getElementById('weather-container').appendChild(clone);
     }
@@ -144,7 +153,6 @@ export class WeatherCard {
         let clone = document.importNode(template.content, true);
         let paragraphes = clone.getElementById('lower-weathercard').querySelectorAll('p');
         paragraphes[0].textContent = this.date.split(' ')[0];
-        //paragraphes[1].textContent = `${weatherIcons(this.weather)}`;
         paragraphes[1].textContent = this.temperatureMin;
         paragraphes[2].textContent = this.temperatureMin;
         paragraphes[3].textContent = this.temperatureMax;
