@@ -8,9 +8,10 @@ let zipCodeDisplay = document.getElementById('zip-code-input');
 let cityListDisplay = document.getElementById('city-name-select');
 let optionsTable = [false, false, false, false, false];
 let weatherCard;
+let weatherCardIndex = [0, 1, 2, 3, 4, 5, 6];
 
-zipCodeDisplay.addEventListener('keypress', e => {
-    if (e.key === 'Enter') createList();
+zipCodeDisplay.addEventListener('input', e => {
+    createList();
 });
 
 cityListDisplay.addEventListener('change', () => {
@@ -47,6 +48,25 @@ function createList() {
         });
 }
 
+function sortWeatherIndexs(i){
+    let temp = weatherCardIndex[0];
+    weatherCardIndex[0] = weatherCardIndex[i + 1];
+    weatherCardIndex[i +1] = temp;
+    let tempWeatherCardIndex = weatherCardIndex.slice(1, weatherCardIndex.length).sort();
+    for(let i = 0; i < tempWeatherCardIndex.length; i++)
+        weatherCardIndex[i + 1] = tempWeatherCardIndex[i];
+}
+
+function eventHandlerLowWeather() {
+    let divs = document.getElementsByClassName('lower-weathercard-div');
+    for(let i = 0; i < divs.length; i++) {
+        divs[i].addEventListener('click', e => {
+            sortWeatherIndexs(i);
+            displayWeatherCards();
+        });
+    }
+}
+
 function removeWeatherCards() {
     let weatherContainer = document.getElementById('weather-container');
     let weatherLowerContainer = document.getElementById('lower-weather-container');
@@ -55,9 +75,10 @@ function removeWeatherCards() {
 }
 function displayWeatherCards() {
     removeWeatherCards();
-    weatherCard[0].toHTML(optionsTable);
+    weatherCard[weatherCardIndex[0]].toHTML(optionsTable);
     for (let i = 1; i < weatherCard.length; i++)
-        weatherCard[i].toLowerHTML(optionsTable);
+        weatherCard[weatherCardIndex[i]].toLowerHTML(optionsTable);
+    eventHandlerLowWeather();
 }
 
 async function createWeatherCard(request) {
@@ -68,5 +89,6 @@ async function createWeatherCard(request) {
         console.error(err);
     }
 }
+
 modal.setupModal();
 eventHandlerOptions();
