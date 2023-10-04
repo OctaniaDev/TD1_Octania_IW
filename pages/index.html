@@ -46,53 +46,55 @@
             </div>
         </div>
 
-        <div id="weather-container">
-        </div>
+        <div class="general-container">
+            <div id="weather-container">
+            </div>
 
-        <button id="open-modal-btn" class="modal-btn center-button">
-            <i class="fa-solid fa-gear fa-rotate-90 fa-sm"></i>
-        </button>
+            <button id="open-modal-btn" class="modal-btn center-button">
+                <i class="fa-solid fa-gear fa-rotate-90 fa-sm"></i>
+            </button>
 
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <span class="close-cross" id="close-cross">&times;</span>
-                <div id="weather-options-container">
-                    <div class="option">
-                        <label for="options-latitude">Latitude</label>
-                        <input type="checkbox" id="options-latitude">
-                    </div>
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-cross" id="close-cross">&times;</span>
+                    <div id="weather-options-container">
+                        <div class="option">
+                            <label for="options-latitude">Latitude</label>
+                            <input type="checkbox" id="options-latitude">
+                        </div>
 
-                    <div class="option">
-                        <label for="options-longitude">Longitude</label>
-                        <input type="checkbox" id="options-longitude">
-                    </div>
+                        <div class="option">
+                            <label for="options-longitude">Longitude</label>
+                            <input type="checkbox" id="options-longitude">
+                        </div>
 
-                    <div class="option">
-                        <label for="options-rain-accumulation">Rain Accumulation</label>
-                        <input type="checkbox" id="options-rain-accumulation">
-                    </div>
+                        <div class="option">
+                            <label for="options-rain-accumulation">Rain Accumulation</label>
+                            <input type="checkbox" id="options-rain-accumulation">
+                        </div>
 
-                    <div class="option">
-                        <label for="options-wind-average">Wind Average</label>
-                        <input type="checkbox" id="options-wind-average">
-                    </div>
+                        <div class="option">
+                            <label for="options-wind-average">Wind Average</label>
+                            <input type="checkbox" id="options-wind-average">
+                        </div>
 
-                    <div class="option">
-                        <label for="options-direction-wind">Direction Wind</label>
-                        <input type="checkbox" id="options-direction-wind">
-                    </div>
-                    <div class="button-container">
-                        <button id="save-modal-btn" class="save-button">Save</button>
-                        <button id="close-modal-btn" class="close-button">Close</button>
-                    </div>
-                    <div class="button-container-reset">
-                        <button id="reset-modal-btn" class="close-reset">Reset</button>
+                        <div class="option">
+                            <label for="options-direction-wind">Direction Wind</label>
+                            <input type="checkbox" id="options-direction-wind">
+                        </div>
+                        <div class="button-container">
+                            <button id="save-modal-btn" class="save-button">Save</button>
+                            <button id="close-modal-btn" class="close-button">Close</button>
+                        </div>
+                        <div class="button-container-reset">
+                            <button id="reset-modal-btn" class="close-reset">Reset</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div id="lower-weather-container">
+            <div id="lower-weather-container">
+            </div>
         </div>
 
         <template id="weather-template">
@@ -166,14 +168,12 @@
                     <li>
                         <p></p>
                     </li>
+                    <img class="lower-weather-img" src="../assets/cloudy-day-3.svg" alt="">
                     <li>
-                        <p></p>
+                        <p class="lower-weather-temp-max"></p>
                     </li>
                     <li>
-                        <p></p>
-                    </li>
-                    <li>
-                        <p></p>
+                        <p class="lower-weather-temp-min"></p>
                     </li>
                 </ul>
             </div>

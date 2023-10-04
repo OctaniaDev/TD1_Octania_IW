@@ -149,12 +149,10 @@ input::placeholder {
 #option-list {
     margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: 20px;
     list-style: none;
-    width: 80%;
+    width: 400px;
     padding: 10px;
     color: white;
-    gap: 8px;
     border-radius: 12px;
     background: var(--base-gray-800, #16161F);
 }
@@ -173,15 +171,10 @@ input::placeholder {
 
 
 #option-list li span {
-    float: left;
-    width: 200px;
-    text-align: left;
+    width: 100%;
+    text-align: justify;
 }
 
-#option-list li p {
-    float: right;
-    text-align: right;
-}
 
 #option-list li::after {
     content: "";
@@ -213,12 +206,13 @@ input::placeholder {
 }
 
 .modal-content {
-    background-color: #fff;
+    background-color: white;
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 200px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    color: black;
 }
 
 .close-modal-btn {
@@ -389,23 +383,47 @@ label {
     margin-top: 20px;
     margin-bottom: 500px;
     text-align: center;
-    background-color: aqua;
+    background-color: green;
+    align-items: center;
     width: 400px;
-    margin-left: auto;
-    margin-right: auto;
     border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
 }
 
 .flex-container {
+    padding: 10px 10px;
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .lower-weathercard-div {
     width: 10%;
     height: auto;
     display: inline-block;
-    background: blue;
+    margin-right: 15px;
 }
+
+.lower-weather-img {
+    width: 70px;
+    height: 70px;
+}
+
+.lower-weather-temp-max {
+    font-size: 20px;
+    color: #FFFFFF;
+    margin-bottom: -7px;
+}
+
+.lower-weather-temp-min {
+    font-size: 18px;
+    color: #b6b6b6;
+}
+
+
 
 
 /*===== RANDOM =====*/
@@ -414,6 +432,11 @@ label {
     display: none;
 }
 
+.general-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 /* ===== MEDIA QUERIES ===== */
 
