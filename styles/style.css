@@ -139,7 +139,7 @@ input::placeholder {
 }
 
 .temperatureActuelle {
-    font-size: 85px;
+    font-size: 65px;
     margin-bottom: -20px;
 }
 
@@ -394,11 +394,11 @@ label {
     list-style: none;
 }
 
-.test {
+.lower-weathercard-div {
     width: 10%;
     height: auto;
     display: inline-block;
-    background: red;
+    background: blue;
 }
 
 

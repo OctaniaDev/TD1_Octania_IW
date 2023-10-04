@@ -122,8 +122,8 @@ export class WeatherCard {
         paragraphes[0].textContent = this.city;
         paragraphes[1].textContent = this.hour;
         paragraphes[2].textContent = this.date;
-        paragraphes[3].textContent = `${this.temperatureMin + '\u00b0c'}`;
-        paragraphes[4].textContent = `${this.temperatureMin + '\u00b0c'} / ${this.temperatureMax + '\u00b0c'}`;
+        paragraphes[3].textContent = `${this.temperatureMin}\u00b0c`;
+        paragraphes[4].textContent = `${this.temperatureMin}\u00b0c / ${this.temperatureMax}\u00b0c`;
         //paragraphes[7].textContent = `${weatherIcons(this.weather)}`;
 
         options[0].textContent = `${this.probabilityRain}%`;
@@ -143,7 +143,7 @@ export class WeatherCard {
         let template = document.getElementById('lower-weather-template');
         let clone = document.importNode(template.content, true);
         let paragraphes = clone.getElementById('lower-weathercard').querySelectorAll('p');
-        paragraphes[0].textContent = this.date;
+        paragraphes[0].textContent = this.date.split(' ')[0];
         //paragraphes[1].textContent = `${weatherIcons(this.weather)}`;
         paragraphes[1].textContent = this.temperatureMin;
         paragraphes[2].textContent = this.temperatureMin;
