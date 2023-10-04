@@ -388,17 +388,22 @@ label {
     margin-top: 20px;
     margin-bottom: 500px;
     text-align: center;
+    background-color: aqua;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
 }
 
 .flex-container {
     list-style: none;
 }
 
-.test {
+
+.lower-weather-container {
     width: 10%;
     height: auto;
     display: inline-block;
-    background: red;
 }
 
 
@@ -426,22 +431,71 @@ label {
 
     .user-choose-general {
         flex-direction: row;
-        display: flex;
-        justify-content: center;
-    }
-
-    .input-general {
-        cursor: pointer;
-        display: flex;
-        height: 50px;
+        align-items: center;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 50px;
     }
 
     .select-general {
+        margin-bottom: 0px;
+    }
+
+    /* ===== CARDS TEMPLATE ===== */
+    .card-container {
+        height: 350px;
+        width: 820px;
+        padding: 20px;
+        border-radius: 50px;
+        border: 3px solid white;
+        background-color: green;
+    }
+
+
+    .top-section-card {
         display: flex;
-        margin-bottom: 50px;
-        width: 200px;
+        justify-content: center;
+        gap: 20px;
+        font-size: 30px;
+    }
+
+    .date-container {
+        display: flex;
+        justify-content: center;
+        font-size: 15px;
+        margin-top: -10px;
+    }
+
+    .middle-section-card {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 40%;
         margin-left: auto;
         margin-right: auto;
-        justify-content: center
+        border-left: 2px solid black;
+        border-right: 2px solid black;
     }
+
+    .bottom-section-card {
+        display: flex;
+        float: right;
+    }
+
+    .img {
+        margin-top: -5px;
+        margin-bottom: -20px;
+        width: 200px;
+        height: 200px;
+    }
+
+    .temperatureActuelle {
+        font-size: 70px;
+    }
+
+    /* ===== MINI CARDS ===== */
+
+
+
+
 }
