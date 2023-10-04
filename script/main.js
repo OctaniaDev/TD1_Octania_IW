@@ -10,8 +10,8 @@ let optionsTable = [false, false, false, false, false];
 let weatherCard;
 let weatherCardIndex = [0, 1, 2, 3, 4, 5, 6];
 
-zipCodeDisplay.addEventListener('keypress', e => {
-    if (e.key === 'Enter') createList();
+zipCodeDisplay.addEventListener('input', e => {
+    createList();
 });
 
 cityListDisplay.addEventListener('change', () => {
