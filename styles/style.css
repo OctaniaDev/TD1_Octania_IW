@@ -407,3 +407,13 @@ label {
 .hidden {
     display: none;
 }
+
+
+/* ===== MEDIA QUERIES ===== */
+
+
+@media screen and (min-width: 1024px) {
+    body {
+        background-color: blue;
+    }
+}
