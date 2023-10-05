@@ -169,7 +169,7 @@ export class WeatherCard {
         let clone = document.importNode(template.content, true);
         let paragraphes = clone.getElementById('lower-weathercard').querySelectorAll('p');
         paragraphes[0].textContent = this.date.split(' ')[0];
-        // paragraphes[1].textContent = this.temperatureMin;
+        this.setImage(clone.getElementById('lower-weathercard-image'));
         paragraphes[1].textContent = `${this.temperatureMax}\u00b0c`;
         paragraphes[2].textContent = `${this.temperatureMin}\u00b0c`;
 
