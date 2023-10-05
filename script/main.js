@@ -9,6 +9,7 @@ let cityListDisplay = document.getElementById('city-name-select');
 let optionsTable = [false, false, false, false, false];
 let weatherCard;
 let weatherCardIndex = [0, 1, 2, 3, 4, 5, 6];
+let width = window.innerWidth;
 
 zipCodeDisplay.addEventListener('input', e => {
     createList();
@@ -89,6 +90,14 @@ async function createWeatherCard(request) {
         console.error(err);
     }
 }
+
+window.addEventListener('resize', () => {
+    if((width >= 1024 && window.innerWidth < 1024) || (width < 1024 && window.innerWidth >= 1024)) {
+        if(weatherCard != null)
+            displayWeatherCards();
+        width = window.innerWidth;
+    }
+});
 
 modal.setupModal();
 eventHandlerOptions();
