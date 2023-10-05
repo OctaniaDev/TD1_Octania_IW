@@ -82,7 +82,26 @@ export class WeatherCard {
         this.options.directionWind = options.directionWind;
     }
 
-    setBorderStyle(optionsContainer, length) {
+    setBorderStyleDesktop(optionsContainer, length) {
+        for (let i = length - 1; i >= 0; i--) {
+            if (optionsContainer[i].style.display == 'flex') {
+                let cssClassWithBorder = false;
+                for (let j = i + 1; j < length; j++) {
+                    if (optionsContainer[j].style.display != 'none')
+                        cssClassWithBorder = true;
+                }
+                if (cssClassWithBorder) {
+                    optionsContainer[i].classList.remove('border-bottom-selection-v2');
+                    optionsContainer[i].classList.add('border-bottom-selection');
+                } else {
+                    optionsContainer[i].classList.remove('border-bottom-selection');
+                    optionsContainer[i].classList.add('border-bottom-selection-v2');
+                }
+            }
+        }
+    }
+
+    setBorderStyleMobile(optionsContainer, length) {
         for (let i = length - 1; i > 0; i--) {
             if (optionsContainer[i].style.display == 'flex') {
                 let cssClassWithBorder = false;
@@ -101,14 +120,22 @@ export class WeatherCard {
         }
     }
 
-    displayOptions(clone, optionsTable) {
+    displayOptionsDesktop(clone, optionsTable) {
+        let optionsContainer = clone.getElementById('option-list').querySelectorAll("li");
+        let length = optionsContainer.length;
+        for (let i = length - 1; i >= 0; i--)
+            optionsContainer[i].style.display = optionsTable[i] ? 'flex' : 'none';
+        this.setBorderStyleDesktop(optionsContainer, length);
+    }
+
+    displayOptionsMobile(clone, optionsTable) {
         let optionsContainer = clone.getElementById('option-list').querySelectorAll("li");
         let length = optionsContainer.length;
         optionsContainer[0].style.display = 'flex';
         optionsContainer[1].style.display = 'flex';
         for (let i = length - 1; i > 1; i--)
             optionsContainer[i].style.display = optionsTable[i - 2] ? 'flex' : 'none';
-        this.setBorderStyle(optionsContainer, length);
+        this.setBorderStyleMobile(optionsContainer, length);
     }
 
     setImage(image) {
@@ -166,7 +193,7 @@ export class WeatherCard {
         options[4].textContent = this.options.rainAccumulation;
         options[5].textContent = this.options.windAverage;
         options[6].textContent = this.options.directionWind;
-        this.displayOptions(clone, optionsTable);
+        this.displayOptionsMobile(clone, optionsTable);
         document.getElementById('weather-container').appendChild(clone);
     }
 
@@ -192,7 +219,7 @@ export class WeatherCard {
         options[2].textContent = this.options.rainAccumulation;
         options[3].textContent = this.options.windAverage;
         options[4].textContent = this.options.directionWind;
-        this.displayOptions(clone, optionsTable);
+        this.displayOptionsDesktop(clone, optionsTable);
         document.getElementById('weather-container').appendChild(clone);
     }
 
