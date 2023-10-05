@@ -27,7 +27,7 @@ export async function createWeatherCard(request) {
         let data = await request;
         let weatherCardWeek = [7];
         let date = new Date();
-        for(let i = 0; i < 7; i++) {
+        for (let i = 0; i < 7; i++) {
             let hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
             let minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
             weatherCardWeek[i] = new WeatherCard(
@@ -83,14 +83,14 @@ export class WeatherCard {
     }
 
     setBorderStyle(optionsContainer, length) {
-        for(let i = length - 1; i > 0; i--) {
-            if(optionsContainer[i].style.display == 'flex') {
+        for (let i = length - 1; i > 0; i--) {
+            if (optionsContainer[i].style.display == 'flex') {
                 let cssClassWithBorder = false;
-                for(let j = i + 1; j < length; j++) {
-                    if(optionsContainer[j].style.display != 'none')
+                for (let j = i + 1; j < length; j++) {
+                    if (optionsContainer[j].style.display != 'none')
                         cssClassWithBorder = true;
                 }
-                if(cssClassWithBorder) {
+                if (cssClassWithBorder) {
                     optionsContainer[i].classList.remove('border-bottom-selection-v2');
                     optionsContainer[i].classList.add('border-bottom-selection');
                 } else {
@@ -106,18 +106,18 @@ export class WeatherCard {
         let length = optionsContainer.length;
         optionsContainer[0].style.display = 'flex';
         optionsContainer[1].style.display = 'flex';
-        for(let i = length - 1; i > 1; i--)
+        for (let i = length - 1; i > 1; i--)
             optionsContainer[i].style.display = optionsTable[i - 2] ? 'flex' : 'none';
         this.setBorderStyle(optionsContainer, length);
     }
 
     setImage(image) {
         let n = this.weather;
-        if(n < 2)
+        if (n < 2)
             image.src = "../assets/day.svg";
-        if(n > 1 && n < 4)
+        if (n > 1 && n < 4)
             image.src = "../assets/cloudy-day-3.svg";
-        if(n > 3 && n < 8)
+        if (n > 3 && n < 8)
             image.src = "../assets/cloudy.svg";
         if(n > 9 && n < 17)
             image.src = "../assets/rainy-7.svg";
@@ -164,14 +164,15 @@ export class WeatherCard {
     }
 
     toLowerHTML() {
-        if(!('content' in document.createElement('template'))) return;
+        if (!('content' in document.createElement('template'))) return;
         let template = document.getElementById('lower-weather-template');
         let clone = document.importNode(template.content, true);
         let paragraphes = clone.getElementById('lower-weathercard').querySelectorAll('p');
         paragraphes[0].textContent = this.date.split(' ')[0];
-        paragraphes[1].textContent = this.temperatureMin;
-        paragraphes[2].textContent = this.temperatureMin;
-        paragraphes[3].textContent = this.temperatureMax;
+        // paragraphes[1].textContent = this.temperatureMin;
+        paragraphes[1].textContent = `${this.temperatureMax}\u00b0c`;
+        paragraphes[2].textContent = `${this.temperatureMin}\u00b0c`;
+
         document.getElementById('lower-weather-container').appendChild(clone);
 
     }
