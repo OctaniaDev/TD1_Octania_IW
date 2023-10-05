@@ -139,6 +139,13 @@ export class WeatherCard {
 
     toHTML(optionsTable) {
         if (!('content' in document.createElement('template'))) return;
+        if(window.innerWidth >= 1024)
+            this.toHTMLDesktop(optionsTable);
+        else
+            this.toMobileHTML(optionsTable);
+    }
+
+    toMobileHTML(optionsTable) {
         let template = document.getElementById('weather-template');
         let clone = document.importNode(template.content, true);
         let list = clone.getElementById('weather-list');
@@ -159,6 +166,32 @@ export class WeatherCard {
         options[4].textContent = this.options.rainAccumulation;
         options[5].textContent = this.options.windAverage;
         options[6].textContent = this.options.directionWind;
+        this.displayOptions(clone, optionsTable);
+        document.getElementById('weather-container').appendChild(clone);
+    }
+
+    toHTMLDesktop(optionsTable) {
+        let template = document.getElementById('weather-template-desktop');
+        let clone = document.importNode(template.content, true);
+        let list = clone.getElementById('weather-list');
+        let paragraphes = list.querySelectorAll("p");
+        let options = clone.getElementById('option-list').querySelectorAll("p");
+
+        paragraphes[0].textContent = `${this.probabilityRain}%`;
+        paragraphes[1].textContent = `${this.sunHours}h`;
+        paragraphes[2].textContent = this.city;
+        paragraphes[3].textContent = this.hour;
+        paragraphes[4].textContent = this.date;
+        paragraphes[5].textContent = `${this.temperatureMin}\u00b0c`;
+        paragraphes[6].textContent = `${this.temperatureMin}\u00b0c`;
+        paragraphes[7].textContent = `${this.temperatureMax}\u00b0c`;
+        this.setImage(clone.getElementById('middle-section-card-image'));
+
+        options[0].textContent = this.options.latitude;
+        options[1].textContent = this.options.longitude;
+        options[2].textContent = this.options.rainAccumulation;
+        options[3].textContent = this.options.windAverage;
+        options[4].textContent = this.options.directionWind;
         this.displayOptions(clone, optionsTable);
         document.getElementById('weather-container').appendChild(clone);
     }
