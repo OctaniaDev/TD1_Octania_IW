@@ -126,6 +126,15 @@ export class WeatherCard {
         for (let i = length - 1; i >= 0; i--)
             optionsContainer[i].style.display = optionsTable[i] ? 'flex' : 'none';
         this.setBorderStyleDesktop(optionsContainer, length);
+        let divInvisible = 0;
+        for(let i = 0; i < optionsContainer.length; i++) {
+            if(optionsContainer[i].style.display == 'none')
+                divInvisible++;
+        }
+        if(divInvisible == optionsContainer.length)
+            clone.getElementById('option-list').style.display = 'none';
+        else
+            clone.getElementById('option-list').style.display = 'block';
     }
 
     displayOptionsMobile(clone, optionsTable) {

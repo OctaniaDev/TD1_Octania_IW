@@ -174,7 +174,9 @@ input::placeholder {
     width: 100%;
     text-align: justify;
 }
-
+#option-list li {
+    display: flex;
+}
 
 #option-list li::after {
     content: "";
