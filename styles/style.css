@@ -603,6 +603,18 @@ label {
 
     /* ===== MINI CARDS ===== */
 
+    #lower-weather-container {
+        width: 820px;
+    }
 
 
+    .lower-weathercard-div {
+        width: 20%;
+    }
+
+    /* ===== OPTION SECTION ===== */
+
+    #option-list {
+        width: 820px;
+    }
 }
