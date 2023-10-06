@@ -23,7 +23,7 @@ body {
 .h1-title {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 100px;
+    margin-top: 10px;
 }
 
 
@@ -64,6 +64,7 @@ input::placeholder {
     border-radius: 10px;
     padding: 4px 10px;
     color: white;
+    margin-bottom: -20px;
 }
 
 
@@ -71,7 +72,7 @@ input::placeholder {
 
 .select-general {
     display: flex;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     width: 200px;
     margin-left: auto;
     margin-right: auto;
@@ -148,9 +149,8 @@ input::placeholder {
 
 #option-list {
     margin-top: 20px;
-    margin-bottom: 20px;
     list-style: none;
-    width: 400px;
+    width: 380px;
     padding: 10px;
     color: white;
     border-radius: 12px;
@@ -330,7 +330,6 @@ label {
     align-items: center;
     background-color: yellow;
     height: 100px;
-    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -448,7 +447,7 @@ input::-webkit-inner-spin-button {
 }
 
 #open-modal-btn {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 
 /* ===== MEDIA QUERIES ===== */
@@ -666,6 +665,9 @@ input::-webkit-inner-spin-button {
         width: 300px;
     }
 
-    /* ===== SELECT ===== */
+    /* ==== RANDOM ===== */
+    #open-modal-btn {
+        margin-bottom: 50px;
+    }
 
 }
