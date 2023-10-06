@@ -441,6 +441,16 @@ label {
     align-items: center;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#open-modal-btn {
+    margin-bottom: 50px;
+}
+
 /* ===== MEDIA QUERIES ===== */
 
 
@@ -456,19 +466,6 @@ label {
         margin-top: 50px;
     }
 
-    .user-choose-general {
-        flex-direction: row;
-        align-items: center;
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 50px;
-    }
-
-    .select-general {
-        margin-bottom: 0px;
-    }
-
     /* ===== CARDS TEMPLATE ===== */
     .card-container {
         height: 350px;
@@ -477,8 +474,9 @@ label {
         border-radius: 50px;
         border: 3px solid white;
         background-color: green;
-        margin-bottom: 50px;
+        margin-bottom: 5px;
     }
+
 
     .top-section-card {
         display: flex;
@@ -530,6 +528,7 @@ label {
         float: left;
         display: flex;
         flex-direction: column;
+        width: 25%;
         margin-right: -180px;
     }
 
@@ -617,4 +616,56 @@ label {
     #option-list {
         width: 820px;
     }
+
+    /* ===== INPUT ===== */
+
+    .user-choose-general {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        align-items: center;
+        margin-bottom: 50px;
+    }
+
+    .input-general {
+        width: 517px;
+        align-items: center;
+    }
+
+    .select-general {
+        width: 50%;
+    }
+
+    #zip-code-input {
+        background-color: #353535;
+        border-radius: 10px;
+        padding: 4px 10px;
+        color: white;
+        width: 300px;
+    }
+
+
+    /* ===== SELECT ===== */
+
+    .select-general {
+        display: flex;
+        margin-bottom: 0px;
+        width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+    }
+
+    #city-name-select {
+        background-color: #353535;
+        padding: 4px 10px;
+        color: white;
+        width: 300px;
+    }
+
+    /* ===== SELECT ===== */
+
 }

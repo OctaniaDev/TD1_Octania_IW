@@ -18,14 +18,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital@1&display=swap" rel="stylesheet" </head>
 
+
+
 <body>
 
-    <!--<div class="loader-container">
+    <div class="loader-container">
         <div class="loader">
             <i class="fas fa-cloud fa-bounce"></i>
         </div>
-    </div>-->
-
+    </div>
 
     <header class="header-general">
         <h1 class="h1-title">Instant Weather</h1>
@@ -46,13 +47,15 @@
             </div>
         </div>
 
+        <button id="open-modal-btn" class="modal-btn center-button">
+            <i class="fa-solid fa-gear fa-rotate-90 fa-sm"></i>
+        </button>
+
         <div class="general-container">
             <div id="weather-container">
             </div>
 
-            <button id="open-modal-btn" class="modal-btn center-button">
-                <i class="fa-solid fa-gear fa-rotate-90 fa-sm"></i>
-            </button>
+
 
             <div id="modal" class="modal">
                 <div class="modal-content">
@@ -268,9 +271,10 @@
 
     </main>
 
-    <footer class="footer-general hidden">
+    <footer class="footer-general">
         <p>OCTANIA &copy; | bclr | FI$$ | Tagada</p>
     </footer>
+
 
     <script type="module" src="../script/main.js"></script>
 </body>
