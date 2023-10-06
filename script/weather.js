@@ -127,11 +127,11 @@ export class WeatherCard {
             optionsContainer[i].style.display = optionsTable[i] ? 'flex' : 'none';
         this.setBorderStyleDesktop(optionsContainer, length);
         let divInvisible = 0;
-        for(let i = 0; i < optionsContainer.length; i++) {
-            if(optionsContainer[i].style.display == 'none')
+        for (let i = 0; i < optionsContainer.length; i++) {
+            if (optionsContainer[i].style.display == 'none')
                 divInvisible++;
         }
-        if(divInvisible == optionsContainer.length)
+        if (divInvisible == optionsContainer.length)
             clone.getElementById('option-list').style.display = 'none';
         else
             clone.getElementById('option-list').style.display = 'block';
@@ -155,27 +155,27 @@ export class WeatherCard {
             image.src = "../assets/cloudy-day-3.svg";
         if (n > 3 && n < 8)
             image.src = "../assets/cloudy.svg";
-        if(n > 9 && n < 17)
+        if (n > 9 && n < 17)
             image.src = "../assets/rainy-7.svg";
-        if(n > 19 && n < 23)
-            image.src = "../assets/snowy-4.svg"; 
-        if(n > 29 && n < 33)
+        if (n > 19 && n < 23)
+            image.src = "../assets/snowy-4.svg";
+        if (n > 29 && n < 33)
             image.src = "../assets/snowy-5.svg";
-        if(n > 39 && n < 49)
+        if (n > 39 && n < 49)
             image.src = "../assets/rainy-6.svg";
-        if(n > 59 && n < 79)
+        if (n > 59 && n < 79)
             image.src = "../assets/snowy-6.svg";
-        if(n > 99 && n < 143)
+        if (n > 99 && n < 143)
             image.src = "../assets/thunder.svg";
-        if(n > 209 && n < 213)
-            image.src = "../assets/rainy-5.svg"; 
-        if(n > 219 && n < 236)
-            image.src = "../assets/snowy-5.svg"; 
+        if (n > 209 && n < 213)
+            image.src = "../assets/rainy-5.svg";
+        if (n > 219 && n < 236)
+            image.src = "../assets/snowy-5.svg";
     }
 
     toHTML(optionsTable) {
         if (!('content' in document.createElement('template'))) return;
-        if(window.innerWidth >= 1024)
+        if (window.innerWidth >= 1024)
             this.toHTMLDesktop(optionsTable);
         else
             this.toMobileHTML(optionsTable);
@@ -213,8 +213,8 @@ export class WeatherCard {
         let paragraphes = list.querySelectorAll("p");
         let options = clone.getElementById('option-list').querySelectorAll("p");
 
-        paragraphes[0].textContent = `${this.probabilityRain}%`;
-        paragraphes[1].textContent = `${this.sunHours}h`;
+        paragraphes[0].textContent = `${this.sunHours}h`;
+        paragraphes[1].textContent = `${this.probabilityRain}%`;
         paragraphes[2].textContent = this.city;
         paragraphes[3].textContent = this.hour;
         paragraphes[4].textContent = this.date;

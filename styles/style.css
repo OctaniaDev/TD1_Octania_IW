@@ -174,6 +174,7 @@ input::placeholder {
     width: 100%;
     text-align: justify;
 }
+
 #option-list li {
     display: flex;
 }
@@ -476,14 +477,17 @@ label {
         border-radius: 50px;
         border: 3px solid white;
         background-color: green;
+        margin-bottom: 50px;
     }
-
 
     .top-section-card {
         display: flex;
         justify-content: center;
         gap: 20px;
         font-size: 30px;
+        width: 10%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .date-container {
@@ -491,6 +495,9 @@ label {
         justify-content: center;
         font-size: 15px;
         margin-top: -10px;
+        width: 20%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .middle-section-card {
@@ -519,8 +526,82 @@ label {
         font-size: 70px;
     }
 
-    /* ===== MINI CARDS ===== */
+    .weather-desktop-left-side {
+        float: left;
+        display: flex;
+        flex-direction: column;
+        margin-right: -180px;
+    }
 
+    .weather-desktop-right-side {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        float: right;
+        justify-content: center;
+        margin-top: -330px;
+        margin-right: 60px;
+    }
+
+    .weather-desktop-right-side img {
+        margin-bottom: -20px;
+    }
+
+    .weather-desktop-right-side p {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .weather-desktop-left-side-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 50%;
+    }
+
+    .weather-desktop-left-side-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .weather-desktop-left-side,
+    .weather-desktop-middle-side,
+    .weather-desktop-right-side {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .weather-desktop-left-side span,
+    .weather-desktop-right-side span {
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 25px;
+    }
+
+    .weather-desktop-left-side p {
+        font-size: 28px;
+    }
+
+
+    .weather-desktop-left-side img,
+    .weather-desktop-right-side img {
+        margin-bottom: 30px;
+    }
+
+    .weather-desktop-right-side-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+
+
+    /* ===== MINI CARDS ===== */
 
 
 

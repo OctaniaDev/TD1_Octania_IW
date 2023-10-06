@@ -164,45 +164,63 @@
         <template id="weather-template-desktop">
             <div class="card-container">
                 <ul id="weather-list">
-                    <li class="border-bottom-selection">
-                        <img class="img-option" src="../assets/pluieIcon.png" alt="">
-                        <span>Probability Rain :</span>
-                        <p></p>
-                    </li>
-                    <li class="border-bottom-selection">
-                        <img class="img-option" src="../assets/soleilIcon.png" alt="">
-                        <span>Sun Hours :</span>
-                        <p></p>
-                    </li>
-                    <div class="top-section-card">
-                        <p id="ville"></p>
-                        <p id="heure"></p>
+
+                    <div class="weather-desktop-left-side">
+                        <span>Sun Hours</span>
+                        <div class="weather-desktop-left-side-container">
+                            <li class="weather-desktop-left-side-wrapper">
+                                <img class="" src="../assets/hSun.svg" alt="">
+                                <p></p>
+                            </li>
+                        </div>
+
+                        <span>Probability Rain</span>
+                        <div class="weather-desktop-left-side-container">
+                            <li class="weather-desktop-left-side-wrapper">
+                                <img class="" src="../assets/hPluie.svg" alt="">
+                                <p></p>
+                            </li>
+                        </div>
                     </div>
-                    <div class="date-container">
-                        <p id="date"></p>
+
+                    <div class="weather-desktop-middle-side">
+                        <div class="top-section-card">
+                            <p id="ville"></p>
+                            <p id="heure"></p>
+                        </div>
+                        <div class="date-container">
+                            <p id="date"></p>
+                        </div>
+                        <div class="middle-section-card">
+                            <li>
+                                <p class="temperatureActuelle"></p>
+                            </li>
+                            <img class="img" id="middle-section-card-image" src="../assets/weather.svg" alt="">
+                        </div>
                     </div>
-                    <div class="middle-section-card">
-                        <li>
-                            <p class="temperatureActuelle"></p>
-                        </li>
-                        <img class="img" id="middle-section-card-image" src="../assets/weather.svg" alt="">
-                    </div>
-                    <div class="bottom-section-card">
-                        <li>
-                            <p></p>
-                        </li>
-                    </div>
-                    <div class="bottom-section-card">
-                        <li>
-                            <p></p>
-                        </li>
+
+                    <div class="weather-desktop-right-side">
+                        <span>Tmin</span>
+                        <div class="bottom-section-card">
+                            <li class="weather-desktop-right-side-wrapper">
+                                <img src="../assets/tmin.svg" alt="">
+                                <p></p>
+                            </li>
+                        </div>
+                        <span>Tmax</span>
+                        <div class="bottom-section-card">
+                            <li class="weather-desktop-right-side-wrapper">
+                                <img src="../assets/tmax.svg" alt="">
+                                <p></p>
+                            </li>
+                        </div>
                     </div>
                 </ul>
             </div>
 
 
             <ul id="option-list">
-               
+
                 <li class="border-bottom-selection">
                     <img class="img-option" src="../assets/boussoleIcon.png" alt="">
                     <span>Latitude :</span>
