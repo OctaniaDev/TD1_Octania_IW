@@ -8,7 +8,7 @@ export class WeatherAPI {
     }
 
     getHTTP() {
-        return this.url + 'forecast/daily?insee=' + this.codeInsee + '&start=0&end=6&token=' + this.token;
+        return this.url + 'forecast/daily/?insee=' + this.codeInsee + '&start=0&end=6&token=' + this.token;
     }
 
     getRequestResult() {
@@ -27,12 +27,16 @@ export async function createWeatherCard(request) {
         let data = await request;
         let weatherCardWeek = [7];
         let date = new Date();
+        let hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
+        let minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
         for (let i = 0; i < 7; i++) {
-            let hours = date.getHours() < 10 ? '0' + date.getHours() : date.getHours();
-            let minutes = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+            let tmin = data.forecast[i].tmin;
+            let tmax = data.forecast[i].tmax;
+            let taverage = (tmax + tmin) / 2;
             weatherCardWeek[i] = new WeatherCard(
-                data.forecast[i].tmin,
-                data.forecast[i].tmax,
+                taverage,
+                tmin,
+                tmax,
                 data.forecast[i].probarain,
                 data.forecast[i].sun_hours,
                 data.forecast[i].weather,
@@ -56,7 +60,8 @@ export async function createWeatherCard(request) {
 }
 
 export class WeatherCard {
-    constructor(tmin, tmax, probarain, sun_hours, weather, city, hour, date) {
+    constructor(taverage, tmin, tmax, probarain, sun_hours, weather, city, hour, date) {
+        this.temperatureAverage = taverage;
         this.temperatureMin = tmin;
         this.temperatureMax = tmax;
         this.probabilityRain = probarain;
@@ -191,7 +196,7 @@ export class WeatherCard {
         paragraphes[0].textContent = this.city;
         paragraphes[1].textContent = this.hour;
         paragraphes[2].textContent = this.date;
-        paragraphes[3].textContent = `${this.temperatureMin}\u00b0c`;
+        paragraphes[3].textContent = `${this.temperatureAverage}\u00b0c`;
         paragraphes[4].textContent = `${this.temperatureMin}\u00b0c / ${this.temperatureMax}\u00b0c`;
         this.setImage(clone.getElementById('middle-section-card-image'));
 
@@ -218,7 +223,7 @@ export class WeatherCard {
         paragraphes[2].textContent = this.city;
         paragraphes[3].textContent = this.hour;
         paragraphes[4].textContent = this.date;
-        paragraphes[5].textContent = `${this.temperatureMin}\u00b0c`;
+        paragraphes[5].textContent = `${this.temperatureAverage}\u00b0c`;
         paragraphes[6].textContent = `${this.temperatureMin}\u00b0c`;
         paragraphes[7].textContent = `${this.temperatureMax}\u00b0c`;
         this.setImage(clone.getElementById('middle-section-card-image'));
