@@ -1,3 +1,6 @@
+/**
+ * This is used to setup the modal window and it as event listeners to see if options are selected
+ */
 export function setupModal() {
     document.addEventListener("DOMContentLoaded", function () {
         const openModalBtn = document.getElementById("open-modal-btn");
