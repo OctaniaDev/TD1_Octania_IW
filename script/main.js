@@ -23,6 +23,9 @@ cityListDisplay.addEventListener('change', () => {
     }
 });
 
+/**
+ * Change display of options depending of checkboxs
+ */
 function eventHandlerOptions() {
     let weatherOptionsContainer = document.getElementById('weather-options-container');
     let options = weatherOptionsContainer.querySelectorAll('input');
@@ -38,6 +41,9 @@ function eventHandlerOptions() {
     }
 }
 
+/**
+ * Create list of cites
+ */
 function createList() {
     let request = zipCode.getRequestResult(zipCodeDisplay)
     request
@@ -49,6 +55,10 @@ function createList() {
         });
 }
 
+/**
+ * This is used to change order of weather cards to fits to the originaly order
+ * @param {int} i 
+ */
 function sortWeatherIndexs(i){
     let temp = weatherCardIndex[0];
     weatherCardIndex[0] = weatherCardIndex[i + 1];
@@ -58,6 +68,9 @@ function sortWeatherIndexs(i){
         weatherCardIndex[i + 1] = tempWeatherCardIndex[i];
 }
 
+/**
+ * This is the event handler for the click event on the little weather cards
+ */
 function eventHandlerLowWeather() {
     let divs = document.getElementsByClassName('lower-weathercard-div');
     for(let i = 0; i < divs.length; i++) {
@@ -68,12 +81,19 @@ function eventHandlerLowWeather() {
     }
 }
 
+/**
+ * This is used to remove weather cards
+ */
 function removeWeatherCards() {
     let weatherContainer = document.getElementById('weather-container');
     let weatherLowerContainer = document.getElementById('lower-weather-container');
     weatherContainer.innerHTML = null;
     weatherLowerContainer.innerHTML = null;
 }
+
+/**
+ * This is used to display weather cards
+ */
 function displayWeatherCards() {
     removeWeatherCards();
     weatherCard[weatherCardIndex[0]].toHTML(optionsTable);
@@ -82,6 +102,10 @@ function displayWeatherCards() {
     eventHandlerLowWeather();
 }
 
+/**
+ * Create the weather card
+ * @param {Array} request 
+ */
 async function createWeatherCard(request) {
     try {
         weatherCard = await weather.createWeatherCard(request);
