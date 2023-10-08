@@ -51,7 +51,6 @@ zipCodeInput.addEventListener('input', function () {
                 } else {
                     createList(data, document.getElementById('city-name-select'));
                     citySelectContainer.style.display = 'block';
-                    selectArrow.classList.add('arrow-animation');
                 }
             })
             .catch(error => {
@@ -59,7 +58,6 @@ zipCodeInput.addEventListener('input', function () {
             });
     } else {
         citySelectContainer.style.display = 'none';
-        selectArrow.classList.remove('arrow-animation');
     }
 });
 
