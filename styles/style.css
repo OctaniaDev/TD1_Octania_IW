@@ -6,13 +6,30 @@
 
 
 body {
-    background-color: #307ca8;
+    background-color: #0c0c11;
     padding: 0;
     margin: 0;
     color: #FFFFFF;
 }
 
 /* ===== HEADER ===== */
+
+.h1-title,
+.hero-title-main,
+#open-modal-btn {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+#zip-code-input {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+
+
 .header-general {
     display: flex;
     justify-content: center;
@@ -27,6 +44,10 @@ body {
     color: #fdcf51;
 }
 
+.hero-title-main {
+    display: flex;
+    flex-direction: column;
+}
 
 .hero-title-part1 {
     font-size: 20px;
@@ -41,11 +62,11 @@ body {
 }
 
 /* ===== INPUT ===== */
-
 .user-choose-general {
     display: flex;
     flex-direction: column;
     gap: 50px;
+    margin-bottom: 20px;
 }
 
 input::placeholder {
@@ -63,9 +84,10 @@ input::placeholder {
 #zip-code-input {
     background-color: #353535;
     border-radius: 10px;
-    padding: 4px 10px;
+    padding: 4px 10px 4px 30px;
     color: white;
 }
+
 
 
 /* ===== SELECT ===== */
@@ -73,7 +95,6 @@ input::placeholder {
 .select-general {
     display: flex;
     margin-bottom: 30px;
-    width: 200px;
     margin-left: auto;
     margin-right: auto;
     justify-content: center
@@ -106,7 +127,7 @@ input::placeholder {
     border-radius: 50px;
     border: 2px solid #808080;
     background-color: #16161F;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+    filter: drop-shadow(0px 4px 4px #00000080);
 }
 
 .top-section-card {
@@ -337,7 +358,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: yellow;
+    background-color: #353535;
     height: 100px;
     bottom: auto;
     width: 100%;
@@ -401,7 +422,7 @@ label {
     cursor: pointer;
     display: flex;
     justify-content: center;
-    border: 2px solid #808080;
+    /* border: 2px solid #808080; */
     background-color: #16161F;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
 }
@@ -452,6 +473,24 @@ label {
     align-items: center;
 }
 
+.notification {
+    margin-top: 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #ff776d;
+    color: black;
+    padding: 16px;
+    transition: right 0.5s ease-in-out;
+}
+
+.hide {
+    right: -120%;
+}
+
+
+
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -460,6 +499,17 @@ input::-webkit-inner-spin-button {
 
 #open-modal-btn {
     margin-bottom: 20px;
+    align-items: center;
+    opacity: 0;
+}
+
+#open-modal-btn i {
+    margin-right: 5px;
+}
+
+#open-modal-btn p {
+    color: white;
+    text-transform: capitalize;
 }
 
 /* ===== MEDIA QUERIES ===== */
@@ -492,13 +542,15 @@ input::-webkit-inner-spin-button {
     }
 
     .top-section-card {
-        display: flex;
+        display: inline-flex;
+        flex-direction: row;
         justify-content: center;
         gap: 20px;
-        font-size: 30px;
-        width: 10%;
+        font-size: 18px;
+        width: 50%;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 10px;
     }
 
     .date-container {
@@ -614,8 +666,6 @@ input::-webkit-inner-spin-button {
         gap: 10px;
     }
 
-
-
     /* ===== MINI CARDS ===== */
 
     #lower-weather-container {
@@ -637,22 +687,12 @@ input::-webkit-inner-spin-button {
 
     .user-choose-general {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        width: 1000px;
-        margin-left: auto;
-        margin-right: auto;
+        justify-content: center;
         align-items: center;
-        margin-bottom: 50px;
     }
 
     .input-general {
-        width: 517px;
-        align-items: center;
-    }
-
-    .select-general {
-        width: 50%;
+        margin-right: 10px;
     }
 
     #zip-code-input {
@@ -663,15 +703,9 @@ input::-webkit-inner-spin-button {
         width: 300px;
     }
 
-
     /* ===== SELECT ===== */
-
     .select-general {
         display: flex;
-        margin-bottom: 0px;
-        width: 500px;
-        margin-left: auto;
-        margin-right: auto;
         justify-content: center;
     }
 
@@ -682,9 +716,25 @@ input::-webkit-inner-spin-button {
         width: 300px;
     }
 
+
     /* ==== RANDOM ===== */
     #open-modal-btn {
         margin-bottom: 5gio0px;
+    }
+
+    .hero-title-part1 {
+        font-size: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-right: 10px;
+    }
+
+    .hero-title-main {
+        flex-direction: row;
+        font-size: 40px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
     }
 
 }

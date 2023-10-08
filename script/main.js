@@ -49,18 +49,18 @@ function createList() {
         });
 }
 
-function sortWeatherIndexs(i){
+function sortWeatherIndexs(i) {
     let temp = weatherCardIndex[0];
     weatherCardIndex[0] = weatherCardIndex[i + 1];
-    weatherCardIndex[i +1] = temp;
+    weatherCardIndex[i + 1] = temp;
     let tempWeatherCardIndex = weatherCardIndex.slice(1, weatherCardIndex.length).sort();
-    for(let i = 0; i < tempWeatherCardIndex.length; i++)
+    for (let i = 0; i < tempWeatherCardIndex.length; i++)
         weatherCardIndex[i + 1] = tempWeatherCardIndex[i];
 }
 
 function eventHandlerLowWeather() {
     let divs = document.getElementsByClassName('lower-weathercard-div');
-    for(let i = 0; i < divs.length; i++) {
+    for (let i = 0; i < divs.length; i++) {
         divs[i].addEventListener('click', e => {
             sortWeatherIndexs(i);
             displayWeatherCards();
@@ -92,8 +92,8 @@ async function createWeatherCard(request) {
 }
 
 window.addEventListener('resize', () => {
-    if((width >= 1024 && window.innerWidth < 1024) || (width < 1024 && window.innerWidth >= 1024)) {
-        if(weatherCard != null)
+    if ((width >= 1024 && window.innerWidth < 1024) || (width < 1024 && window.innerWidth >= 1024)) {
+        if (weatherCard != null)
             displayWeatherCards();
         width = window.innerWidth;
     }
