@@ -32,7 +32,7 @@ export async function createWeatherCard(request) {
         for (let i = 0; i < 7; i++) {
             let tmin = data.forecast[i].tmin;
             let tmax = data.forecast[i].tmax;
-            let taverage = (tmax + tmin) / 2;
+            let taverage = Number.parseInt((tmax + tmin) / 2);
             weatherCardWeek[i] = new WeatherCard(
                 taverage,
                 tmin,
