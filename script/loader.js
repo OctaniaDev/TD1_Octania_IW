@@ -33,6 +33,9 @@ function showContent() {
     document.querySelector('footer').style.display = '';
 }
 
+/**
+ * This function is used to animate the site
+ */
 function animateTitlesAndInputOnLoad() {
     const h1Title = document.querySelector(".h1-title");
     const heroTitle = document.querySelector(".hero-title-main");

@@ -66,7 +66,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 input::placeholder {
@@ -86,6 +86,7 @@ input::placeholder {
     border-radius: 10px;
     padding: 4px 10px 4px 30px;
     color: white;
+    margin-bottom: -30px;
 }
 
 
