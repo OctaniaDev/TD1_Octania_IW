@@ -2,7 +2,6 @@ import * as zipCode from "./zipCode.js"
 import * as weather from "./weather.js"
 import * as modal from './modal.js';
 import * as loader from './loader.js';
-s
 
 let zipCodeDisplay = document.getElementById('zip-code-input');
 let cityListDisplay = document.getElementById('city-name-select');
