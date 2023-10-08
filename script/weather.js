@@ -1,5 +1,8 @@
 import config from './config.json' assert{type: 'json'}
 
+/**
+ * @class WeatherAPI class
+ */
 export class WeatherAPI {
     constructor(codeInsee) {
         this.url = config.url;
@@ -7,10 +10,18 @@ export class WeatherAPI {
         this.codeInsee = codeInsee;
     }
 
+    /**
+     * Build the string for the request
+     * @returns {String} String representation for the http request
+     */
     getHTTP() {
         return this.url + 'forecast/daily/?insee=' + this.codeInsee + '&start=0&end=6&token=' + this.token;
     }
 
+    /**
+     * Make the request to the API and fetch datas
+     * @returns {Array} Weather informations
+     */
     getRequestResult() {
         return fetch(this.getHTTP())
             .then(response => {
@@ -22,6 +33,11 @@ export class WeatherAPI {
     }
 }
 
+/**
+ * This function create weather cards and fill them with datas
+ * @param {Array} request 
+ * @returns {WeatherCard} Completed weather cards 
+ */
 export async function createWeatherCard(request) {
     try {
         let data = await request;
@@ -59,6 +75,9 @@ export async function createWeatherCard(request) {
     }
 }
 
+/**
+ * @class WeatherCard
+ */
 export class WeatherCard {
     constructor(taverage, tmin, tmax, probarain, sun_hours, weather, city, hour, date) {
         this.temperatureAverage = taverage;
@@ -79,6 +98,10 @@ export class WeatherCard {
             }
     }
 
+    /**
+     * Defines options of the cards
+     * @param {Object} options 
+     */
     setOption(options) {
         this.options.latitude = options.latitude;
         this.options.longitude = options.longitude;
@@ -87,6 +110,11 @@ export class WeatherCard {
         this.options.directionWind = options.directionWind;
     }
 
+    /**
+     * This is used to define the border style for the desktop cards
+     * @param {Element} optionsContainer 
+     * @param {int} length 
+     */
     setBorderStyleDesktop(optionsContainer, length) {
         for (let i = length - 1; i >= 0; i--) {
             if (optionsContainer[i].style.display == 'flex') {
@@ -106,6 +134,11 @@ export class WeatherCard {
         }
     }
 
+    /**
+     * This is used to define the border style for the mobile cards
+     * @param {Element[]} optionsContainer 
+     * @param {int} length 
+     */
     setBorderStyleMobile(optionsContainer, length) {
         for (let i = length - 1; i > 0; i--) {
             if (optionsContainer[i].style.display == 'flex') {
@@ -125,6 +158,11 @@ export class WeatherCard {
         }
     }
 
+    /**
+     * This is used to display options for the desktop
+     * @param {Element} clone 
+     * @param {boolean[]} optionsTable 
+     */
     displayOptionsDesktop(clone, optionsTable) {
         let optionsContainer = clone.getElementById('option-list').querySelectorAll("li");
         let length = optionsContainer.length;
@@ -142,6 +180,11 @@ export class WeatherCard {
             clone.getElementById('option-list').style.display = 'block';
     }
 
+    /**
+     * This is used to display options for the mobile
+     * @param {Element} clone 
+     * @param {boolean[]} optionsTable 
+     */
     displayOptionsMobile(clone, optionsTable) {
         let optionsContainer = clone.getElementById('option-list').querySelectorAll("li");
         let length = optionsContainer.length;
@@ -152,6 +195,10 @@ export class WeatherCard {
         this.setBorderStyleMobile(optionsContainer, length);
     }
 
+    /**
+     * This is used ot select image depending on the weather
+     * @param {String} image 
+     */
     setImage(image) {
         let n = this.weather;
         if (n < 2)
@@ -178,6 +225,10 @@ export class WeatherCard {
             image.src = "../assets/snowy-5.svg";
     }
 
+    /**
+     * This is used to check there is a template and if it is in mobile or desktop size
+     * @param {boolean[]} optionsTable
+     */
     toHTML(optionsTable) {
         if (!('content' in document.createElement('template'))) return;
         if (window.innerWidth >= 1024)
@@ -186,6 +237,10 @@ export class WeatherCard {
             this.toMobileHTML(optionsTable);
     }
 
+    /**
+     * This used to set elements in the html template for the mobile
+     * @param {boolean[]} optionsTable
+     */
     toMobileHTML(optionsTable) {
         let template = document.getElementById('weather-template');
         let clone = document.importNode(template.content, true);
@@ -211,6 +266,10 @@ export class WeatherCard {
         document.getElementById('weather-container').appendChild(clone);
     }
 
+    /**
+     * This used to set elements in the html template for the desktop
+     * @param {boolean[]} optionsTable
+     */
     toHTMLDesktop(optionsTable) {
         let template = document.getElementById('weather-template-desktop');
         let clone = document.importNode(template.content, true);
@@ -237,6 +296,9 @@ export class WeatherCard {
         document.getElementById('weather-container').appendChild(clone);
     }
 
+    /**
+     * This is used to set element is the smalls weather cards
+     */
     toLowerHTML() {
         if (!('content' in document.createElement('template'))) return;
         let template = document.getElementById('lower-weather-template');
