@@ -507,7 +507,7 @@ input::-webkit-inner-spin-button {
     margin-right: 5px;
 }
 
-#open-modal-btn p {
+#open-modal-btn label {
     color: white;
     text-transform: capitalize;
 }
@@ -719,7 +719,7 @@ input::-webkit-inner-spin-button {
 
     /* ==== RANDOM ===== */
     #open-modal-btn {
-        margin-bottom: 5gio0px;
+        margin-bottom: 5px;
     }
 
     .hero-title-part1 {
