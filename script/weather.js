@@ -257,11 +257,11 @@ export class WeatherCard {
 
         options[0].textContent = `${this.probabilityRain}%`;
         options[1].textContent = `${this.sunHours}h`;
-        options[2].textContent = this.options.latitude;
-        options[3].textContent = this.options.longitude;
-        options[4].textContent = this.options.rainAccumulation;
-        options[5].textContent = this.options.windAverage;
-        options[6].textContent = this.options.directionWind;
+        options[2].textContent = `${this.options.latitude}°`;
+        options[3].textContent = `${this.options.longitude}°`;
+        options[4].textContent = `${this.options.rainAccumulation}mm`;
+        options[5].textContent = `${this.options.windAverage}km/h`;
+        options[6].textContent = `${this.options.directionWind}°`;
         this.displayOptionsMobile(clone, optionsTable);
         document.getElementById('weather-container').appendChild(clone);
     }
@@ -287,11 +287,11 @@ export class WeatherCard {
         paragraphes[7].textContent = `${this.temperatureMax}\u00b0c`;
         this.setImage(clone.getElementById('middle-section-card-image'));
 
-        options[0].textContent = this.options.latitude;
-        options[1].textContent = this.options.longitude;
-        options[2].textContent = this.options.rainAccumulation;
-        options[3].textContent = this.options.windAverage;
-        options[4].textContent = this.options.directionWind;
+        options[0].textContent = `${this.options.latitude}°`;
+        options[1].textContent = `${this.options.longitude}°`;
+        options[2].textContent = `${this.options.rainAccumulation}mm`;
+        options[3].textContent = `${this.options.windAverage}km/h`;
+        options[4].textContent = `${this.options.directionWind}°`;
         this.displayOptionsDesktop(clone, optionsTable);
         document.getElementById('weather-container').appendChild(clone);
     }
