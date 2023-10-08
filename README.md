@@ -25,6 +25,7 @@ If you need more detailed weather information, you can choose from the following
 3. Select the city name in the drop-down list.
 4. You will instantly see the basic weather information on the screen.
 5. If you need advanced weather data, click on the "Advanced Options" button and select the data you want to display.
+6. You can click on a specific day to display information bigger
 
 ## Technologies Used 💻
 - HTML: For structuring the web page.
