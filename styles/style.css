@@ -367,7 +367,7 @@ label {
 
 /* ===== LOADER ===== */
 
-#loader-container {
+.loader-container {
     display: flex;
     justify-content: center;
     align-items: center;
