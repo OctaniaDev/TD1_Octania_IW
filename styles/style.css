@@ -501,16 +501,14 @@ input::-webkit-inner-spin-button {
     margin-bottom: 20px;
     align-items: center;
     opacity: 0;
+    color: white;
 }
 
 #open-modal-btn i {
     margin-right: 5px;
 }
 
-#open-modal-btn label {
-    color: white;
-    text-transform: capitalize;
-}
+
 
 /* ===== MEDIA QUERIES ===== */
 
