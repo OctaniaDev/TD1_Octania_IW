@@ -6,7 +6,7 @@
 
 
 body {
-    background-color: #0F2836;
+    background-color: #307ca8;
     padding: 0;
     margin: 0;
     color: #FFFFFF;
@@ -24,6 +24,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
+    color: #fdcf51;
 }
 
 
@@ -64,7 +65,6 @@ input::placeholder {
     border-radius: 10px;
     padding: 4px 10px;
     color: white;
-    margin-bottom: -20px;
 }
 
 
@@ -99,18 +99,22 @@ input::placeholder {
 }
 
 .card-container {
+    margin-top: 10px;
     height: 250px;
     width: 300px;
     padding: 20px;
     border-radius: 50px;
-    border: 1px solid white;
-    /* background: linear-gradient(45deg, #353535, #000000); */
+    border: 2px solid #808080;
+    background-color: #16161F;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
 }
 
 .top-section-card {
+    padding: 5px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 90%;
     align-items: center;
 }
 
@@ -120,7 +124,8 @@ input::placeholder {
 }
 
 .middle-section-card {
-    margin-top: 10px;
+    padding: 5px;
+    margin-top: -60px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -128,16 +133,18 @@ input::placeholder {
 }
 
 .bottom-section-card {
+    padding: 5px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-top: -40px;
 }
 
 .img {
-    /* width: 30%; */
     margin-top: 40px;
-    height: 30%;
+    height: 100%;
+    width: 100%
 }
 
 .temperatureActuelle {
@@ -150,11 +157,13 @@ input::placeholder {
 #option-list {
     margin-top: 20px;
     list-style: none;
-    width: 380px;
+    width: 350px;
     padding: 10px;
     color: white;
     border-radius: 12px;
-    background: var(--base-gray-800, #16161F);
+    border: 2px solid #808080;
+    background-color: #16161F;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
 }
 
 .border-bottom-selection {
@@ -330,8 +339,9 @@ label {
     align-items: center;
     background-color: yellow;
     height: 100px;
-    bottom: 0;
+    bottom: auto;
     width: 100%;
+    margin-top: 30px;
 }
 
 /* ===== LOADER ===== */
@@ -385,13 +395,15 @@ label {
     margin-top: 20px;
     margin-bottom: 500px;
     text-align: center;
-    background-color: green;
     align-items: center;
-    width: 400px;
+    width: 370px;
     border-radius: 12px;
     cursor: pointer;
     display: flex;
     justify-content: center;
+    border: 2px solid #808080;
+    background-color: #16161F;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
 }
 
 .flex-container {
@@ -454,9 +466,6 @@ input::-webkit-inner-spin-button {
 
 
 @media screen and (min-width: 1024px) {
-    body {
-        background-color: blue;
-    }
 
     .h1-title {
         font-size: 80px;
@@ -467,15 +476,20 @@ input::-webkit-inner-spin-button {
 
     /* ===== CARDS TEMPLATE ===== */
     .card-container {
-        height: 350px;
+        height: 320px;
         width: 820px;
         padding: 20px;
         border-radius: 50px;
-        border: 3px solid white;
-        background-color: green;
+        border: 2px solid #808080;
+        background-color: #16161F;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
         margin-bottom: 5px;
     }
 
+
+    #middle-section-card-image {
+        margin-top: 20px;
+    }
 
     .top-section-card {
         display: flex;
@@ -537,7 +551,7 @@ input::-webkit-inner-spin-button {
         justify-content: center;
         float: right;
         justify-content: center;
-        margin-top: -330px;
+        margin-top: -310px;
         margin-right: 60px;
     }
 
@@ -562,6 +576,8 @@ input::-webkit-inner-spin-button {
         flex-direction: row;
         align-items: center;
         gap: 20px;
+        margin-top: -30px;
+        margin-left: -20px;
     }
 
     .weather-desktop-left-side,
@@ -570,12 +586,13 @@ input::-webkit-inner-spin-button {
         flex: 1;
         display: flex;
         flex-direction: column;
+
         align-items: center;
     }
 
     .weather-desktop-left-side span,
     .weather-desktop-right-side span {
-        margin-bottom: 10px;
+        margin-bottom: 40px;
         text-align: center;
         font-size: 25px;
     }
@@ -587,7 +604,7 @@ input::-webkit-inner-spin-button {
 
     .weather-desktop-left-side img,
     .weather-desktop-right-side img {
-        margin-bottom: 30px;
+        margin-bottom: 10px;
     }
 
     .weather-desktop-right-side-wrapper {
@@ -667,7 +684,7 @@ input::-webkit-inner-spin-button {
 
     /* ==== RANDOM ===== */
     #open-modal-btn {
-        margin-bottom: 50px;
+        margin-bottom: 5gio0px;
     }
 
 }
