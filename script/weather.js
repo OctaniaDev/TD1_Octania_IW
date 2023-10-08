@@ -202,27 +202,27 @@ export class WeatherCard {
     setImage(image) {
         let n = this.weather;
         if (n < 2)
-            image.src = "../assets/day.svg";
+            image.src = "./assets/day.svg";
         if (n > 1 && n < 4)
-            image.src = "../assets/cloudy-day-3.svg";
+            image.src = "./assets/cloudy-day-3.svg";
         if (n > 3 && n < 8)
-            image.src = "../assets/cloudy.svg";
+            image.src = "./assets/cloudy.svg";
         if (n > 9 && n < 17)
-            image.src = "../assets/rainy-7.svg";
+            image.src = "./assets/rainy-7.svg";
         if (n > 19 && n < 23)
-            image.src = "../assets/snowy-4.svg";
+            image.src = "./assets/snowy-4.svg";
         if (n > 29 && n < 33)
-            image.src = "../assets/snowy-5.svg";
+            image.src = "./assets/snowy-5.svg";
         if (n > 39 && n < 49)
-            image.src = "../assets/rainy-6.svg";
+            image.src = "./assets/rainy-6.svg";
         if (n > 59 && n < 79)
-            image.src = "../assets/snowy-6.svg";
+            image.src = "./assets/snowy-6.svg";
         if (n > 99 && n < 143)
-            image.src = "../assets/thunder.svg";
+            image.src = "./assets/thunder.svg";
         if (n > 209 && n < 213)
-            image.src = "../assets/rainy-5.svg";
+            image.src = "./assets/rainy-5.svg";
         if (n > 219 && n < 236)
-            image.src = "../assets/snowy-5.svg";
+            image.src = "./assets/snowy-5.svg";
     }
 
     /**
