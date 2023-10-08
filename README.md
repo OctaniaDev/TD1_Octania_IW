@@ -1,7 +1,7 @@
 # 🌦️ Weather Forecast Application 🌦️
 
 ## Overview 🌍
-Welcome to the Weather Forecast Application! This simple yet powerful web application allows you to check the weather forecast for any franch city with a zip code. You can quickly get essential weather information like current conditions, chance of rain, hours of sunshine, maximum temperature, and minimum temperature. Additionally, if you need more advanced weather data, we offer options to access additional meteorological information such as decimal latitude, decimal longitude, total rainfall, average wind speed, and wind direction.
+Welcome to the Weather Forecast Application! This simple yet powerful web application allows you to check the weather forecast for any French city with a zip code. You can quickly get essential weather information like current conditions, chance of rain, hours of sunshine, maximum temperature, and minimum temperature. Additionally, if you need more advanced weather data, we offer options to access additional meteorological information such as decimal latitude, decimal longitude, total rainfall, average wind speed, and wind direction.
 
 ## Features 🌟
 ### Basic Weather Information 🌤️
@@ -20,12 +20,21 @@ If you need more detailed weather information, you can choose from the following
 - Wind direction in degrees (0 to 360°).
 
 ## How to Use 🚀
-1. Visit our Weather Forecast Application website [here](notReadyYet).
+1. Visit our Weather Forecast Application website [here](https://octaniadev.github.io/TD1_Octania_IW/).
 2. Enter the zip code for your desired location.
 3. Select the city name in the drop-down list.
 4. You will instantly see the basic weather information on the screen.
 5. If you need advanced weather data, click on the "Advanced Options" button and select the data you want to display.
 6. You can click on a specific day to display information bigger
+
+## Complementary informations 💼
+You can see the model that we make [here](https://www.figma.com/file/pueuBcYPkwCor0T62J5nqv/Instant-Weather?type=design&node-id=0%3A1&mode=design&t=62IMi8W5qLAFrXNY-1).
+
+### Improvement that we used to do if we had more time :
+- Sounds
+- Dynamic backgrounds
+- See weather for each hours of the day
+- More animations, like clouds comming at the opening of the page
 
 ## Technologies Used 💻
 - HTML: For structuring the web page.
